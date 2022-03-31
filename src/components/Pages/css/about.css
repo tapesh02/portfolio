@@ -1,0 +1,331 @@
+.main-about,
+.main-tech,
+.main-resume,
+.main-hobbies,
+.main-contact-form {
+    height: calc(100vh - 64px);
+    width: 95vw;
+    margin: auto;
+    display: flex;
+    margin-top: 5%;
+}
+
+.img-box {
+    width: 45vw;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    clip-path: circle(50%);
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 700px) {
+    .img-box {
+        width: 50vw;
+        height: 85%;
+    }
+}
+@media only screen and (max-width: 2000px) and (min-width: 1400px) {
+    .img-box {
+        width: 40vw;
+        height: 40vw;
+    }
+}
+.img-box img {
+    object-fit: cover;
+    border-radius: 50%;
+    mix-blend-mode: hard-light;
+    box-shadow: 3px 3px 6px #00000040;
+}
+.content-box {
+    width: 55%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-about-title-intro {
+    width: 100%;
+    height: 65%;
+}
+.about-title {
+    font-size: 1.5vw !important;
+    font-weight: bold !important;
+    width: 80%;
+    padding: 1%;
+}
+
+.about-intro {
+    width: 95%;
+    padding: 1%;
+    text-align: justify;
+    font-size: 1.05vw !important;
+    font-style: italic;
+}
+
+.about-details {
+    display: flex;
+    height: 35%;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+.about-details1,
+.about-details2 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.about-inner-details {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    align-items: center;
+    align-content: center;
+}
+.span-text {
+    font-weight: bold;
+}
+.download-btn {
+    background-color: #ff0000 !important;
+    color: white !important;
+}
+.download-btn:hover {
+    background-color: white !important;
+    color: #ff0000 !important;
+}
+.main-tech,
+.main-resume,
+.main-hobbies,
+.main-contact-form {
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.main-tech-header,
+.main-resume-header,
+.main-hobbies-header,
+.main-contact-form-header {
+    width: fit-content;
+}
+.tech-header,
+.resume-header,
+.hobbies-header,
+.contact-form-header {
+    font-size: 1.5vw !important;
+    font-weight: bold !important;
+}
+
+.tech-overviewText,
+.resume-overviewText {
+    font-size: 1.05vw;
+}
+
+.tech-list {
+    display: flex;
+    width: inherit;
+    margin-top: 0.5%;
+    justify-content: space-between;
+    align-items: center;
+}
+.tech-list-icons {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: center;
+    margin: 0.2vw;
+    padding: 0.2vw;
+}
+
+.tech-list-icons img {
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+}
+
+.tech-list-1 {
+    margin: 2vh;
+    padding: 1vh;
+}
+
+.tech-list-1 p {
+    font-size: 1vw;
+    font-weight: bold;
+}
+.resume-details {
+    display: flex;
+    box-sizing: border-box;
+}
+.resume-main-education,
+.resume-main-experience {
+    width: 50%;
+}
+.education-header,
+.experience-header {
+    font-size: 1.5vw;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.education-section {
+    display: flex;
+    gap: 2vw;
+    padding: 1vw;
+    padding-left: 1.5vw;
+}
+.MuiDivider-vertical {
+    height: 100% !important;
+    background-color: #fe4747 !important;
+    width: 2px !important;
+}
+.education-details {
+    box-sizing: border-box;
+}
+.circle {
+    width: 14px;
+    height: 14px;
+    background-color: #fe4747;
+    border-radius: 50%;
+    margin-left: -1.75%;
+    position: absolute;
+}
+
+/* @media only screen and  (max-width: 700px) and  (min-width: 600px) {
+    .circle {
+        margin-left: -3.1%;
+    }
+} */
+@media only screen and (max-width: 1000px) and (min-width: 700px) {
+    .circle {
+        margin-left: -3.1%;
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    .circle {
+        margin-left: -2.79%;
+    }
+}
+@media only screen and (max-width: 2000px) and (min-width: 1400px) {
+    .circle {
+        margin-left: -2.6%;
+    }
+}
+@media only screen and (min-width: 2000px) {
+    .circle {
+        margin-left: -2.35%;
+    }
+}
+.not-circle p {
+    margin-top: 0.5%;
+}
+.resume-title {
+    font-size: 1.05vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    word-wrap: break-word;
+}
+.resume-year {
+    background-color: #ffe9e9;
+    font-size: 1.05vw;
+    font-weight: 500;
+    width: fit-content;
+    padding-left: 0.25vw;
+    padding-right: 0.25vw;
+    border-radius: 3px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+.resume-location {
+    font-size: 1vw;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.main-hobbies-icons,
+.main-contact-details {
+    display: flex;
+    justify-content: center;
+}
+
+.car-icon {
+    background: linear-gradient(#f00 0%, #ff1616 38.48%, #fe4747 100%);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    color: white;
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 700px) {
+    .car-icon {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.hobbie-name {
+    font-size: 1.1vw;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.contact-bg {
+    width: 70vw;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
+    border-radius: 20px;
+    display: flex;
+}
+
+.contact-form {
+    width: 40%;
+    margin: 2vw;
+}
+
+.connected-bg {
+    width: 40%;
+    border-radius: 10px;
+    margin: 2.7vw;
+    background-color: rgb(91, 64, 64);
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.send-btn {
+    float: right;
+    background-color: #fe4747 !important;
+    color: #ffffff !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+.send-btn:hover {
+    background-color: #ffffff !important;
+    color: #fe4747 !important;
+}
+.connected-title,
+.connected-subtitle {
+    color: #ffffff;
+    font-size: 1.1vw;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: left;
+}
+.connected-subtitle {
+    font-style: oblique;
+    font-weight: normal;
+    color: #888888;
+}
+
+.connected-icons {
+    display: inline-flex;
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 700px) {
+    .contact-bg {
+        width: 90vw;
+    }
+}

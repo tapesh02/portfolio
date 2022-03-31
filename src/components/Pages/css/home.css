@@ -1,0 +1,198 @@
+.title {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    text-transform: uppercase;
+    font-size: 1.5em;
+
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+/**
+ * ----------------------------------------
+ * animation text-focus-in start
+ * ----------------------------------------
+ */
+@-webkit-keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+@keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+/**
+ * ----------------------------------------
+ * animation text-focus-in end 
+ * ----------------------------------------
+ */
+.header-1 {
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    text-transform: uppercase;
+    font-size: 4em;
+    -webkit-animation: slide-in-left 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: slide-in-left 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+/**
+ * ----------------------------------------
+ * animation slide-in-left start
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-left {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-in-left {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/**
+ * ----------------------------------------
+ * animation slide-in-left end 
+ * ----------------------------------------
+ */
+.header-2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    text-transform: uppercase;
+    font-size: 4em;
+
+    -webkit-animation: slide-in-right 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: slide-in-right 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+/**
+ * ----------------------------------------
+ * animation slide-in-right start
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-right {
+    0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-in-right {
+    0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/**
+ * ----------------------------------------
+ * animation slide-in-right end
+ * ----------------------------------------
+ */
+.home-icons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: inherit;
+}
+.home-icons h6 {
+    margin: 10px;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-icons h6 img {
+    padding-left: 10px;
+    width: 25px;
+    height: 25px;
+}
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 1.2em;
+        top: 20%;
+    }
+    .header-1 {
+        font-size: 3rem;
+        top: 25%;
+    }
+    .header-2 {
+        font-size: 3rem;
+        top: 45%;
+        left: 15%;
+    }
+    .home-icons {
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .home-icons h6 {
+        margin: 10px;
+    }
+}
+/* @media screen and (min-width: 1030px) {
+    .title {
+        font-size: 1.5em;
+    }
+    .header-1 {
+        font-size: 4.2rem;
+    }
+    .header-2 {
+        font-size: 4.2rem;
+    }
+} */
+
+@media screen and (min-width: 1441px) {
+    .title {
+        font-size: 3em;
+    }
+    .header-1 {
+        font-size: 8rem;
+    }
+    .header-2 {
+        font-size: 8rem;
+    }
+}

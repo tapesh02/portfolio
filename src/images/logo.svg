@@ -1,0 +1,38 @@
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffebeb;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        font-size: 25px;
+        font-family: Roboto-Medium, Roboto;
+        font-weight: 500;
+      }
+
+      .cls-4 {
+        filter: url(#circleBg);
+      }
+    </style>
+    <filter id="circleBg">
+      <feOffset dx="2" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#f80000" flood-opacity="0.161" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <circle id="circleBg-2" data-name="circleBg" class="cls-1" cx="22.5" cy="22.5" r="22.5"/>
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <circle id="circleBg-3" data-name="circleBg" class="cls-2" cx="22.5" cy="22.5" r="22.5"/>
+    </g>
+  </g>
+  <text id="logoName" class="cls-3" transform="translate(7 32)"><tspan x="0" y="0">TP</tspan></text>
+</svg>

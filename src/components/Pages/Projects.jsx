@@ -17,7 +17,6 @@ const Projects = () => {
 
     useEffect(() => {
         const getDribbleShots = async () => {
-            // const dribbleAccessToken = "35970e185ee35ce074678b7d2b33b9fd72a79b60bcd37b6c82491d6827657326";
             const dribbleAccessToken = `${process.env.REACT_APP_DRIBBBLE_ACCESS_TOKEN}`;
             const dribbblePage = 1;
             const SHOTS_PER_PAGE = 10;

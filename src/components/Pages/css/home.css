@@ -4,88 +4,44 @@
     left: 15%;
     text-transform: uppercase;
     font-size: 1.5em;
-
-    -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-    animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
-/**
- * ----------------------------------------
- * animation text-focus-in start
- * ----------------------------------------
- */
-@-webkit-keyframes text-focus-in {
-    0% {
-        -webkit-filter: blur(12px);
-        filter: blur(12px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
-        opacity: 1;
-    }
-}
-@keyframes text-focus-in {
-    0% {
-        -webkit-filter: blur(12px);
-        filter: blur(12px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
-        opacity: 1;
-    }
-}
-/**
- * ----------------------------------------
- * animation text-focus-in end 
- * ----------------------------------------
- */
 .header-1 {
     position: absolute;
     top: 35%;
     left: 15%;
     text-transform: uppercase;
     font-size: 4em;
-    -webkit-animation: slide-in-left 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    animation: slide-in-left 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(
+        45deg,
+        #000000 10%,
+        #ca4246 16.666%,
+        #e16541 16.666%,
+        #e16541 33.333%,
+        #f18f43 33.333%,
+        #f18f43 50%,
+        #8b9862 50%,
+        #8b9862 66.666%,
+        #476098 66.666%,
+        #476098 83.333%,
+        #a7489b 83.333%
+    );
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+
+    -webkit-animation: rainbow-text-simple-animation-rev 7s ease alternate-reverse infinite;
+    animation: rainbow-text-simple-animation-rev 7s ease alternate-reverse infinite;
 }
-/**
- * ----------------------------------------
- * animation slide-in-left start
- * ----------------------------------------
- */
-@-webkit-keyframes slide-in-left {
-    0% {
-        -webkit-transform: translateX(-1000px);
-        transform: translateX(-1000px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes slide-in-left {
-    0% {
-        -webkit-transform: translateX(-1000px);
-        transform: translateX(-1000px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-/**
- * ----------------------------------------
- * animation slide-in-left end 
- * ----------------------------------------
- */
+
+/* ----------------------Animation ends ------------------------*/
 .header-2 {
     position: absolute;
     top: 45%;
@@ -93,97 +49,80 @@
     text-transform: uppercase;
     font-size: 4em;
 
-    -webkit-animation: slide-in-right 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    animation: slide-in-right 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    /* Create the gradient. */
+    background-image: linear-gradient(
+        45deg,
+        #000000 10%,
+        #ca4246 16.666%,
+        #e16541 16.666%,
+        #e16541 33.333%,
+        #f18f43 33.333%,
+        #f18f43 50%,
+        #8b9862 50%,
+        #8b9862 66.666%,
+        #476098 66.666%,
+        #476098 83.333%,
+        #a7489b 83.333%
+    );
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+
+    -webkit-animation: rainbow-text-simple-animation-rev 7s ease alternate-reverse infinite;
+    animation: rainbow-text-simple-animation-rev 7s ease alternate-reverse infinite;
 }
-/**
- * ----------------------------------------
- * animation slide-in-right start
- * ----------------------------------------
- */
-@-webkit-keyframes slide-in-right {
+
+@keyframes rainbow-text-simple-animation-rev {
     0% {
-        -webkit-transform: translateX(1000px);
-        transform: translateX(1000px);
-        opacity: 0;
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
     }
     100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-        opacity: 1;
+        background-size: 100%;
     }
 }
-@keyframes slide-in-right {
-    0% {
-        -webkit-transform: translateX(1000px);
-        transform: translateX(1000px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-/**
- * ----------------------------------------
- * animation slide-in-right end
- * ----------------------------------------
- */
+/* ----------------------Animation ends ------------------------*/
 .home-icons {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: inherit;
-}
-.home-icons h6 {
-    margin: 10px;
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: center;
+    align-content: space-around;
     align-items: center;
+    height: fit-content;
+    position: absolute;
+    bottom: 6%;
+    right: 45%;
+    left: 45%;
 }
-.home-icons h6 img {
-    padding-left: 10px;
+.home-icons img {
     width: 25px;
     height: 25px;
 }
-@media screen and (max-width: 600px) {
-    .title {
-        font-size: 1.2em;
-        top: 20%;
-    }
-    .header-1 {
-        font-size: 3rem;
-        top: 25%;
-    }
-    .header-2 {
-        font-size: 3rem;
-        top: 45%;
-        left: 15%;
-    }
-    .home-icons {
-        display: flex;
-        flex-direction: column;
-        align-content: space-around;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    .home-icons h6 {
-        margin: 10px;
-    }
+
+.subtitile {
+    position: absolute;
+    top: 65%;
+    left: 15%;
+    font-size: 1.5rem;
 }
-/* @media screen and (min-width: 1030px) {
-    .title {
-        font-size: 1.5em;
-    }
-    .header-1 {
-        font-size: 4.2rem;
-    }
-    .header-2 {
-        font-size: 4.2rem;
-    }
-} */
+.more-btn {
+    width: fit-content;
+    position: absolute;
+    top: 72%;
+    left: 15%;
+    background-color: #fe4747 !important;
+    color: #ffffff !important;
+}
+
+.more-btn:hover {
+    background-color: #ffffff !important;
+    color: #fe4747 !important;
+}
 
 @media screen and (min-width: 1441px) {
     .title {
@@ -195,4 +134,164 @@
     .header-2 {
         font-size: 8rem;
     }
+}
+.giticon-btn:hover {
+    background: transparent !important;
+}
+
+/* ----------------------for mobile  ------------------------*/
+
+.m-home-main {
+    /* background-color: aqua;
+    border: 1px solid green; */
+    width: 70%;
+    margin: auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.m-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.m-header-1 {
+    margin: 0px;
+    margin-top: 3%;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(
+        45deg,
+        #000000 10.5%,
+        #ca4246 16.666%,
+        #e16541 16.666%,
+        #e16541 33.333%,
+        #f18f43 33.333%,
+        #f18f43 50%,
+        #8b9862 50%,
+        #8b9862 66.666%,
+        #476098 66.666%,
+        #476098 83.333%,
+        #a7489b 83.333%
+    );
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+
+    animation: rainbow-text-simple-animation-rev 7s ease alternate-reverse infinite;
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+    0% {
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+.m-header-2 {
+    margin: 0px;
+    margin-top: 3%;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(
+        45deg,
+        #000000 10.5%,
+        #ca4246 16.666%,
+        #e16541 16.666%,
+        #e16541 33.333%,
+        #f18f43 33.333%,
+        #f18f43 50%,
+        #8b9862 50%,
+        #8b9862 66.666%,
+        #476098 66.666%,
+        #476098 83.333%,
+        #a7489b 83.333%
+    );
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+
+    animation: rainbow-text-simple-animation-rev 7s ease alternate-reverse infinite;
+}
+
+.m-subtitile {
+    font-size: 1.2rem;
+}
+
+.m-home-icons {
+    margin-top: 50px;
+    display: flex;
+}
+
+.gitIcon {
+    font-size: 20px;
+    color: #333;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s !important;
+}
+.dribbleIcon {
+    font-size: 20px;
+    color: #ea4c89;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s !important;
+}
+
+.behanceIcon {
+    font-size: 20px;
+    color: #053eff;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 3s !important ;
+}
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+.m-home-icons .MuiButton-text {
+    margin: 0% !important;
+    padding: 0% !important;
+}
+
+.m-more-btn {
+    background-color: #fe4747 !important;
+    color: #ffffff !important;
+    text-transform: none !important;
+}
+.m-more-btn:hover {
+    background-color: #ffffff !important;
+    color: #fe4747 !important;
+}
+.m-home-icons a span {
+    justify-content: flex-start;
 }

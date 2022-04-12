@@ -1,10 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { saveAs } from "file-saver";
+import Aos from "aos";
+
+import "../../../node_modules/aos/dist/aos.css";
+import "../../components/Pages/css/about.css";
+
 import { Box, Button, Divider, SvgIcon, TextField, Typography } from "@material-ui/core";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { CardTravel, Facebook, FontDownload, GetApp, LibraryMusic, LinkedIn, Movie, People, SportsSoccer, Twitter, YouTube } from "@material-ui/icons";
+import { ArrowUpward, CardTravel, GetApp, LibraryMusic, Movie, People, SportsSoccer } from "@material-ui/icons";
 
-import "../../components/Pages/css/about.css";
 import myimg from "../../images/myimg.jpeg";
 import powerappsicon from "../../images/icons/powerappsicon.png";
 import powerautoicon from "../../images/icons/powerautoicon.png";
@@ -20,6 +25,32 @@ import expressjsicon from "../../images/icons/expressjsicon.png";
 import muiicon from "../../images/icons/muiicon.png";
 
 const AboutMe = () => {
+    const onDownloadCv = () => {
+        saveAs("/files/resume.docx", "resume.docx");
+    };
+
+    const [visible, setVisible] = useState(false);
+
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop;
+        if (scrolled > 300) {
+            setVisible(true);
+        } else if (scrolled <= 300) {
+            setVisible(false);
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+    window.addEventListener("scroll", toggleVisible);
+
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
     return (
         <>
             <Box className="main-about">
@@ -44,21 +75,21 @@ const AboutMe = () => {
                         <Box className=" about-details1">
                             <Box className=" about-inner-details">
                                 <ChevronRightIcon />
-                                <Typography style={{ fontSize: "1.05vw" }}>
+                                <Typography className="about-details-text">
                                     {" "}
                                     <span className="span-text"> Birthday: </span>19 June 1993
                                 </Typography>
                             </Box>
                             <Box className=" about-inner-details">
                                 <ChevronRightIcon />
-                                <Typography style={{ fontSize: "1.05vw" }}>
+                                <Typography className="about-details-text">
                                     {" "}
                                     <span className="span-text"> Phone: </span> +353 0899876363
                                 </Typography>
                             </Box>
                             <Box className=" about-inner-details">
                                 <ChevronRightIcon />
-                                <Typography style={{ fontSize: "1.05vw" }}>
+                                <Typography className="about-details-text">
                                     {" "}
                                     <span className="span-text"> Location: </span>Newbridge, Ireland{" "}
                                 </Typography>
@@ -67,21 +98,21 @@ const AboutMe = () => {
                         <Box className=" about-details2">
                             <Box className=" about-inner-details">
                                 <ChevronRightIcon />
-                                <Typography style={{ fontSize: "1.05vw" }}>
+                                <Typography className="about-details-text">
                                     {" "}
                                     <span className="span-text"> Age: </span> 28{" "}
                                 </Typography>
                             </Box>
                             <Box className=" about-inner-details">
                                 <ChevronRightIcon />
-                                <Typography style={{ fontSize: "1.05vw" }}>
+                                <Typography className="about-details-text">
                                     {" "}
                                     <span className="span-text"> Degree: </span> Masters In Software Engineering{" "}
                                 </Typography>
                             </Box>
                             <Box className=" about-inner-details">
                                 <ChevronRightIcon />
-                                <Typography style={{ fontSize: "1.05vw" }}>
+                                <Typography className="about-details-text">
                                     {" "}
                                     <span className="span-text"> Email: </span> pateltapesh505@gmail.com{" "}
                                 </Typography>
@@ -91,10 +122,13 @@ const AboutMe = () => {
                 </Box>
             </Box>
             <Box style={{ width: "100%", margin: "2% auto", textAlign: "center" }}>
-                <Button variant="contained" endIcon={<GetApp />} className="download-btn">
+                <Button variant="contained" endIcon={<GetApp className="icon" />} className="download-btn" onClick={onDownloadCv}>
                     Download
                 </Button>
             </Box>
+            <div className="arrowiconBtn">
+                <ArrowUpward style={{ display: visible ? "unset" : "none" }} className="arrowicon" onClick={scrollToTop} />
+            </div>
             <Box className="main-tech">
                 <Box className="main-tech-header">
                     <p className="tech-header"> Technologies </p>
@@ -193,19 +227,19 @@ const AboutMe = () => {
                             </Box>
                             <Box className="education-details">
                                 <div className="circle"> </div>
-                                <div className="not-circle">
+                                <div className="not-circle" data-aos="zoom-in-up">
                                     <p className="resume-title">MASTER OF SCIENCE IN INFORMATION SYSTEMS WITH COMPUTING</p>
                                     <p className="resume-year"> 2017-2019</p>
                                     <p className="resume-location">Dublin business school, ireland</p>
                                 </div>
                                 <div className="circle"> </div>
-                                <div className="not-circle">
+                                <div className="not-circle" data-aos="zoom-in-up">
                                     <p className="resume-title">BACHELOR OF ELECTRICAL ENGINEERING</p>
                                     <p className="resume-year"> 2011-2006</p>
                                     <p className="resume-location">North Maharashtra University, Jalgoan, India</p>
                                 </div>
                                 <div className="circle"> </div>
-                                <div className="not-circle">
+                                <div className="not-circle" data-aos="zoom-in-up">
                                     <p className="resume-title">Boys Town Public School</p>
                                     <p className="resume-year"> 2009-2010</p>
                                     <p className="resume-location">Pune University Nashik, India</p>
@@ -221,19 +255,19 @@ const AboutMe = () => {
                             </Box>
                             <Box className="education-details">
                                 <div className="circle"> </div>
-                                <div className="not-circle">
+                                <div className="not-circle" data-aos="zoom-in-up">
                                     <p className="resume-title">SOFTWARE DEVELOPER</p>
                                     <p className="resume-year"> 2020-Present</p>
                                     <p className="resume-location">Kare, Newbridge, Ireland</p>
                                 </div>
                                 <div className="circle"> </div>
-                                <div className="not-circle">
+                                <div className="not-circle" data-aos="zoom-in-up">
                                     <p className="resume-title">JUNIOR DEVELOPER</p>
                                     <p className="resume-year"> 2019-2020</p>
                                     <p className="resume-location">Unipupil Limited, Dublin, Ireland</p>
                                 </div>
                                 <div className="circle"> </div>
-                                <div className="not-circle">
+                                <div className="not-circle" data-aos="zoom-in-up">
                                     <p className="resume-title">JUNIOR DEVELOPER</p>
                                     <p className="resume-year"> 2017-2019</p>
                                     <p className="resume-location">Global Prospect Media Solutions, Vadodara, India</p>
@@ -253,23 +287,23 @@ const AboutMe = () => {
                     </span>
                 </Box>
                 <Box className="main-hobbies-icons">
-                    <Box className="car-icon">
+                    <Box className="car-icon" data-aos="flip-up">
                         <CardTravel fontSize="large" />
                         <p className="hobbie-name">travel</p>
                     </Box>
-                    <Box className="car-icon">
+                    <Box className="car-icon" data-aos="flip-down">
                         <Movie fontSize="large" />
                         <p className="hobbie-name">Movie</p>
                     </Box>
-                    <Box className="car-icon">
+                    <Box className="car-icon" data-aos="flip-up">
                         <SportsSoccer fontSize="large" />
                         <p className="hobbie-name">Playing</p>
                     </Box>
-                    <Box className="car-icon">
+                    <Box className="car-icon" data-aos="flip-down">
                         <LibraryMusic fontSize="large" />
                         <p className="hobbie-name">Music</p>
                     </Box>
-                    <Box className="car-icon">
+                    <Box className="car-icon" data-aos="flip-up">
                         <People fontSize="large" />
                         <p className="hobbie-name">Socializing</p>
                     </Box>

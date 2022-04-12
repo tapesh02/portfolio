@@ -1,161 +1,164 @@
-import React from "react";
-import { Box, Button } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { Box, Button, Divider, Typography } from "@material-ui/core";
+import { Markup } from "interweave";
+import Aos from "aos";
 
 import "../Pages/css/project.css";
-import { LinkedIn, Twitter, YouTube } from "@material-ui/icons";
+import "../../../node_modules/aos/dist/aos.css";
+
+import { Facebook, Instagram, LinkedIn, Twitter, ArrowUpward } from "@material-ui/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDribbble } from "@fortawesome/free-brands-svg-icons";
+
 const Projects = () => {
+    const [articles, setArticles] = useState();
+    const [shots, setShots] = useState();
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const getDribbleShots = async () => {
+            const dribbleAccessToken = "35970e185ee35ce074678b7d2b33b9fd72a79b60bcd37b6c82491d6827657326";
+            const dribbblePage = 1;
+            const SHOTS_PER_PAGE = 10;
+            const dribbleapi = `https://api.dribbble.com/v2/user/shots?access_token=${dribbleAccessToken}&page=${dribbblePage}&per_page=${SHOTS_PER_PAGE}`;
+
+            const dResponse = await fetch(dribbleapi);
+            try {
+                const dResponseJson = await dResponse.json();
+                const dshots = dResponseJson;
+                setShots(dshots);
+                console.log(dshots);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getDribbleShots();
+    }, []);
+
+    useEffect(() => {
+        const getmediumapi = async () => {
+            const mediumapi = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@tapesh.patel";
+
+            const response = await fetch(mediumapi, { headers: { Accept: "application/json" } });
+
+            try {
+                const responseJson = await response.json();
+                const data = responseJson.items;
+                setArticles(data);
+                // console.log(data); //here you are getting the data
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getmediumapi();
+    }, []);
+
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
+
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+        if (newWindow) newWindow.opener = null;
+    };
+    const onClickUrl = (url) => {
+        return () => openInNewTab(url);
+    };
+
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop;
+        if (scrolled > 300) {
+            setVisible(true);
+        } else if (scrolled <= 300) {
+            setVisible(false);
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+    window.addEventListener("scroll", toggleVisible);
+
     return (
         <>
-            <Box className="project-nav">
-                <Button variant="contained" className="project-nav-btn ">
-                    ui/ux
-                </Button>
-                <Button variant="contained" className="project-nav-btn ">
-                    Full-stack
-                </Button>
-                <Button variant="contained" className="project-nav-btn ">
-                    PowerApps
-                </Button>
+            <Box className="main-blog">
+                <Box className="main-blog-header">
+                    <p className="blog-header"> UI/UX </p>
+                    <span>
+                        {" "}
+                        <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
+                    </span>
+                </Box>
             </Box>
+            <div className="arrowiconBtn2">
+                <ArrowUpward style={{ display: visible ? "inline-block" : "none" }} className="arrowicon2" onClick={scrollToTop} />
+            </div>
             <Box className="main-project-section">
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/users/8875726/screenshots/17887273/media/e05e6169c67909d2531211399dd543cf.jpg?compress=1&resize=1200x900&vertical=top"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
-                </Box>
+                {shots
+                    ? shots.map((shot) => {
+                          return (
+                              <Box className="project-section" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                                  <Box className="main-card">
+                                      <Box className="card-img">
+                                          <img src={shot.images.normal} alt="cardimg" className="card-img-inner" />{" "}
+                                      </Box>
+                                      <Box className="card-title"> {shot.title} </Box>
+                                      <Box className="card-subtitle"> {Date(shot.updated_at).toString().slice(0, 15)}</Box>
+                                      <Box className="card-footer">
+                                          <Typography className="loadshot-text"> Load Shot </Typography>
+                                          <FontAwesomeIcon className="shots-icon" icon={faDribbble} onClick={onClickUrl(`${shot.html_url}`)} />
+                                      </Box>
+                                  </Box>
+                              </Box>
+                          );
+                      })
+                    : null}
+            </Box>
 
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/userupload/2461168/file/original-a959eeeb72b4d079fbc79468846483d2.png?filters:format(webp)?filters%3Aformat%28webp%29=&compress=1&resize=1600x1200"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
+            <Box className="main-blog">
+                <Box className="main-blog-header">
+                    <p className="blog-header"> Blogs</p>
+                    <span>
+                        {" "}
+                        <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
+                    </span>
                 </Box>
+                {articles
+                    ? articles.map((posts) => {
+                          return (
+                              <Box className="main-blog-card" key={posts.link} data-aos="fade-up" data-aos-duration="3000">
+                                  <Box className="card-blog-img">
+                                      <img className="blog-img" src={posts.thumbnail} alt="blogimg" />
+                                  </Box>
+                                  <Box className="card-blog-content">
+                                      <Box className="blog-content-main">
+                                          <p className="blog-content-title">{posts.title}</p>
+                                          <Markup className="blog-content-overview" content={posts.description}></Markup>
+                                      </Box>
+                                      <Box className="blog-content-fotter">
+                                          <Button variant="contained" fontSize="small" className="readmore-btn" href={posts.link} target="_blank">
+                                              Read More
+                                          </Button>
+                                          <p className="blog-fotter-date">{posts.pubDate.slice(0, 10)}</p>
+                                      </Box>
+                                  </Box>
+                              </Box>
+                          );
+                      })
+                    : null}
 
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/userupload/2457527/file/original-92e69212ec1434167798a09883013896.png?filters:format(webp)?filters%3Aformat%28webp%29=&compress=1&resize=1600x1200"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
+                <Box className="main-blog-follow-section">
+                    <p className="blog-follow-title"> Want to get latest update of my blogs?</p>
+                    <p className="blog-follow-subtitle"> Follow me</p>
                 </Box>
-
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/userupload/2464671/file/original-3ff117e52b105337129b8c95d9e97756.png?filters:format(webp)?filters%3Aformat%28webp%29=&compress=1&resize=1600x1200"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
-                </Box>
-
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/users/4290451/screenshots/17880758/media/b455ae052c31298bc5efa3ab26a81a6d.png?compress=1&resize=1200x900&vertical=top"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
-                </Box>
-
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/users/3010014/screenshots/17878440/media/279f88cf30a1baba48a6c164746d8df0.jpg?compress=1&resize=1200x900&vertical=top"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
-                </Box>
-
-                <Box className="project-section">
-                    <Box className="main-card">
-                        <Box className="card-img">
-                            {" "}
-                            <img
-                                src="https://cdn.dribbble.com/users/8430061/screenshots/17880549/media/2d5ce9b86bab23003546e1df299238eb.png?compress=1&resize=1200x900&vertical=top"
-                                alt="cardimg"
-                                className="card-img-inner"
-                            />{" "}
-                        </Box>
-                        <Box className="card-title"> Shop Website </Box>
-                        <Box className="card-subtitle"> Landing Page </Box>
-                        <Box className="card-footer">
-                            <YouTube fontSize="medium" />
-                            <Twitter fontSize="medium" />
-                            <LinkedIn fontSize="medium" />{" "}
-                        </Box>
-                    </Box>
+                <Box className="blog-follow-icons">
+                    <Facebook style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    <Twitter style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    <LinkedIn style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    <Instagram style={{ fontSize: "2vw ", color: "#FE4747" }} />
                 </Box>
             </Box>
         </>

@@ -2,9 +2,18 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import LogoComp from "../Logo/LogoComp";
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Button, makeStyles, Toolbar, Typography } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+    showDesktop: {
+        [theme.breakpoints.down("xs")]: {
+            display: "none",
+        },
+    },
+}));
 
 const DesktopNavBar = () => {
+    const classes = useStyles();
     const activeStyle = {
         // textDecoration: "underline solid #FE4747 2px",
         borderBottom: "2px solid #FE4747 ",
@@ -12,7 +21,7 @@ const DesktopNavBar = () => {
     };
     return (
         <>
-            <AppBar position="static" color="transparent" elevation={0}>
+            <AppBar position="static" color="transparent" elevation={0} className={classes.showDesktop}>
                 <Toolbar>
                     <Typography style={{ flexGrow: "1" }}>
                         <Link to="/home">

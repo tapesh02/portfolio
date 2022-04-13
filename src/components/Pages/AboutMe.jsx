@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import Aos from "aos";
+import emailjs from "@emailjs/browser";
 
 import "../../../node_modules/aos/dist/aos.css";
 import "../../components/Pages/css/about.css";
@@ -30,7 +31,39 @@ const AboutMe = () => {
     };
 
     const [visible, setVisible] = useState(false);
+    const [values, setValues] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [showMessage, setShowMessage] = useState(false);
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        setValues((values) => ({
+            ...values,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+    const serviceID = `${process.env.REACT_APP_EMAIL_SERVICE_ID}`;
+    const tempID = `${process.env.REACT_APP_EMAIL_TEMPLATE_ID}`;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        emailjs.send(serviceID, tempID, values, "G9e7dTWheuxDkmHUR").then(
+            function (response) {
+                console.log(response.status);
+                setShowMessage(true);
+                window.location.reload();
+            },
+            function (error) {
+                window.alert("Technical error, the message was not sent");
+                console.log(error);
+            }
+        );
+    };
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
         if (scrolled > 300) {
@@ -321,14 +354,66 @@ const AboutMe = () => {
                 <Box className="main-contact-details">
                     <Box className="contact-bg">
                         <Box className="contact-form">
-                            <TextField id="outlined-full-width" placeholder="Name" fullWidth margin="normal" variant="outlined" />
+                            <form onSubmit={handleSubmit}>
+                                <TextField
+                                    id="outlined-full-width"
+                                    name="name"
+                                    type="text"
+                                    value={values.name}
+                                    onChange={handleChange}
+                                    placeholder="Name"
+                                    required
+                                    fullWidth
+                                    margin="normal"
+                                    variant="outlined"
+                                />
 
-                            <TextField id="outlined-full-width" placeholder="Email" fullWidth margin="normal" variant="outlined" />
+                                <TextField
+                                    id="outlined-full-width"
+                                    name="email"
+                                    type="email"
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    placeholder="Email"
+                                    required
+                                    fullWidth
+                                    margin="normal"
+                                    variant="outlined"
+                                />
 
-                            <TextField id="outlined-full-width" placeholder="Phone" fullWidth margin="normal" variant="outlined" />
+                                <TextField
+                                    id="outlined-full-width"
+                                    name="phone"
+                                    type="tel"
+                                    value={values.phone}
+                                    onChange={handleChange}
+                                    placeholder="Phone"
+                                    required
+                                    fullWidth
+                                    margin="normal"
+                                    variant="outlined"
+                                />
 
-                            <TextField id="outlined-full-width" placeholder="Message" fullWidth margin="normal" variant="outlined" multiline rows={10} />
-                            <Button className="send-btn"> Send</Button>
+                                <TextField
+                                    id="outlined-full-width"
+                                    name="message"
+                                    value={values.message}
+                                    onChange={handleChange}
+                                    type="text"
+                                    required
+                                    placeholder="Message"
+                                    fullWidth
+                                    margin="normal"
+                                    variant="outlined"
+                                    multiline
+                                    rows={10}
+                                />
+                                <Button className="send-btn" type="submit">
+                                    {" "}
+                                    Send
+                                </Button>
+                                <p style={showMessage === true ? { display: "inherit", color: "green" } : { display: "none" }}> Your message was sent successfuly. Thanks you ! </p>
+                            </form>
                         </Box>
                         <Box className="connected-bg">
                             <Box className="connected-details">

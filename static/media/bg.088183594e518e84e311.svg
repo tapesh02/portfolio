@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" max-width="100%" width="auto" max-height="100vh" height="auto">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-topCircle, .cls-rightCircle, .cls-leftCircle {
+        fill: #ffebeb;
+      }
+      #topCircle{
+        position: absolute;
+         top: 50%; 
+         right: 50%;
+         transform: translate(30%,-8%);
+      }
+      #rightCircle{
+        position: absolute;
+         top: 75%; 
+         right: 3%;
+         transform: translate(63%, 42%);
+      }
+      #leftCircle{
+        position: absolute;
+         top: 85%; 
+         left: 3%;
+         transform: translate(-15%, 70%);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="rect" class="cls-1" width="100%" height="100%"/>
+    </clipPath>
+  </defs>
+  <g id="bg" class="cls-2">
+    <circle id="topCircle" class="cls-topCircle" cx="28%" cy="28%" r="28%" />
+    <circle id="rightCircle" class="cls-rightCircle" cx="15%" cy="15%" r="15%"/>
+    <circle id="leftCircle" class="cls-leftCircle" cx="17.5%" cy="17.5%" r="17.5%" />
+  </g>
+</svg>

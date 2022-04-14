@@ -137,7 +137,7 @@ const MobileNavBar = () => {
 
         if (typeof window != "undefined" && window.document) {
             document.body.style.overflow = "hidden";
-            document.body.style.bod = "blur(2px)";
+            document.body.style.background = "blur(2px)";
         }
     };
 

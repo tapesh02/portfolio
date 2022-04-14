@@ -11,7 +11,7 @@
 
       .cls-3 {
         font-size: 25px;
-        font-family: Roboto-Medium, Roboto;
+        font-family: "Segoe UI", "Roboto" !important;
         font-weight: 500;
       }
 

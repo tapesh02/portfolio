@@ -74,7 +74,7 @@ const AboutMe = () => {
     };
 
     const scrollToTop = () => {
-        window.scrollTo({
+        window.scroll({
             top: 0,
             behavior: "smooth",
         });
@@ -159,9 +159,9 @@ const AboutMe = () => {
                     Download
                 </Button>
             </Box>
-            <div className="arrowiconBtn">
-                <ArrowUpward style={{ display: visible ? "unset" : "none" }} className="arrowicon" onClick={scrollToTop} />
-            </div>
+            <Box className="arrowiconBtn">
+                <ArrowUpward style={{ display: visible ? "block" : "none" }} className="arrowicon" onClick={scrollToTop} />
+            </Box>
             <Box className="main-tech">
                 <Box className="main-tech-header">
                     <p className="tech-header"> Technologies </p>
@@ -177,7 +177,7 @@ const AboutMe = () => {
                     </p>
                 </Box>
                 <Box className="tech-list">
-                    <Box className="tech-list-1">
+                    <Box className="tech-list-1" data-aos="fade-up">
                         <Box className="tech-list-icons">
                             <img src={powerappsicon} alt="powerAppIcon" width="30" height="30" />
                             <p>PowerApps</p>
@@ -191,7 +191,7 @@ const AboutMe = () => {
                             <p>SharePoint</p>
                         </Box>
                     </Box>
-                    <Box className="tech-list-1">
+                    <Box className="tech-list-1" data-aos="fade-up">
                         <Box className="tech-list-icons">
                             <img src={reactjsicon} alt="reactjsicon" width="30" height="30" />
                             <p>React Js</p>
@@ -205,7 +205,7 @@ const AboutMe = () => {
                             <p>Photoshop</p>
                         </Box>
                     </Box>
-                    <Box className="tech-list-1">
+                    <Box className="tech-list-1" data-aos="fade-up">
                         <Box className="tech-list-icons">
                             <img src={adobexdicon} alt="adobexdicon" width="30" height="30" />
                             <p>Adobe XD</p>
@@ -220,7 +220,7 @@ const AboutMe = () => {
                             <p>Git Version/Source Control</p>
                         </Box>
                     </Box>
-                    <Box className="tech-list-1">
+                    <Box className="tech-list-1" data-aos="fade-up">
                         <Box className="tech-list-icons">
                             <img src={mongodbicon} alt="mongodbicon" width="30" height="30" />
                             <p>No SQL (MongoDb)</p>
@@ -321,23 +321,23 @@ const AboutMe = () => {
                 </Box>
                 <Box className="main-hobbies-icons">
                     <Box className="car-icon" data-aos="flip-up">
-                        <CardTravel fontSize="large" />
+                        <CardTravel />
                         <p className="hobbie-name">travel</p>
                     </Box>
                     <Box className="car-icon" data-aos="flip-down">
-                        <Movie fontSize="large" />
+                        <Movie />
                         <p className="hobbie-name">Movie</p>
                     </Box>
                     <Box className="car-icon" data-aos="flip-up">
-                        <SportsSoccer fontSize="large" />
+                        <SportsSoccer />
                         <p className="hobbie-name">Playing</p>
                     </Box>
                     <Box className="car-icon" data-aos="flip-down">
-                        <LibraryMusic fontSize="large" />
+                        <LibraryMusic />
                         <p className="hobbie-name">Music</p>
                     </Box>
                     <Box className="car-icon" data-aos="flip-up">
-                        <People fontSize="large" />
+                        <People />
                         <p className="hobbie-name">Socializing</p>
                     </Box>
                 </Box>

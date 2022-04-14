@@ -108,7 +108,8 @@
     position: absolute;
     top: 65%;
     left: 15%;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    font-size: 1.1rem;
 }
 .more-btn {
     width: fit-content;

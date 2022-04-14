@@ -100,7 +100,7 @@ const Projects = () => {
                 {shots
                     ? shots.map((shot) => {
                           return (
-                              <Box className="project-section" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                              <Box className="project-section" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" key={shots.id}>
                                   <Box className="main-card">
                                       <Box className="card-img">
                                           <img src={shot.images.normal} alt="cardimg" className="card-img-inner" />{" "}

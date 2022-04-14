@@ -8,31 +8,25 @@
     margin: auto;
     display: flex;
     margin-top: 5%;
+
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
 }
 
 .img-box {
-    width: 45vw;
-    height: inherit;
+    /* width: 45vw;
+    height: inherit; */
+    width: 47vw;
+    height: 45vw;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     clip-path: circle(50%);
 }
-/* for tablet */
-@media only screen and (max-width: 1000px) and (min-width: 700px) {
-    .img-box {
-        width: 50vw;
-        height: 85%;
-    }
-}
-/* for desktop */
-@media only screen and (max-width: 2000px) and (min-width: 1400px) {
-    .img-box {
-        width: 40vw;
-        height: 40vw;
-    }
-}
+
 .img-box img {
     object-fit: cover;
     border-radius: 50%;
@@ -111,6 +105,7 @@
     z-index: 1;
     cursor: pointer;
 }
+
 @media screen and (max-width: 600px) {
     .arrowiconBtn {
         right: 10%;
@@ -202,6 +197,9 @@
     background-color: #fe4747 !important;
     width: 2px !important;
 }
+.MuiListItem-divider {
+    -webkit-background-clip: padding-box;
+}
 .education-details {
     box-sizing: border-box;
 }
@@ -214,33 +212,6 @@
     position: absolute;
 }
 
-/* @media only screen and  (max-width: 700px) and  (min-width: 600px) {
-    .circle {
-        margin-left: -3.1%;
-    }
-} */
-@media only screen and (max-width: 1000px) and (min-width: 700px) {
-    .circle {
-        margin-left: -3.1%;
-    }
-}
-
-@media only screen and (min-width: 1001px) {
-    .circle {
-        /* margin-left: -2.79%; */
-        margin-left: -2.65%;
-    }
-}
-@media only screen and (max-width: 2000px) and (min-width: 1400px) {
-    .circle {
-        margin-left: -2.6%;
-    }
-}
-@media only screen and (min-width: 2000px) {
-    .circle {
-        margin-left: -2.35%;
-    }
-}
 .not-circle p {
     margin-top: 0.5%;
 }
@@ -286,12 +257,8 @@
     border-radius: 5px;
     color: white;
 }
-
-@media only screen and (max-width: 1000px) and (min-width: 700px) {
-    .car-icon {
-        width: 100px;
-        height: 100px;
-    }
+.car-icon > svg {
+    font-size: 2.1875rem !important;
 }
 
 .hobbie-name {
@@ -355,12 +322,6 @@
     width: 100%;
 }
 
-@media only screen and (max-width: 1000px) and (min-width: 700px) {
-    .contact-bg {
-        width: 90vw;
-    }
-}
-
 /* for mobile screen  */
 
 @media only screen and (max-width: 600px) {
@@ -372,15 +333,15 @@
     }
     .img-box {
         content: "";
-        width: 100%;
-        height: 330px;
+        width: 80vw;
+        height: 80vw;
     }
+
     .img-box img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 10px;
-        /* clip-path: none; */
     }
     .content-box {
         width: 100%;
@@ -490,9 +451,10 @@
         width: 55px;
         height: 55px;
         margin: auto;
-        font-size: 0.01rem;
     }
-
+    .car-icon > svg {
+        font-size: 1rem !important;
+    }
     .hobbie-name {
         font-size: 0.4rem !important;
         font-weight: 500;
@@ -502,6 +464,19 @@
         flex-direction: column;
         width: 100%;
         align-items: center;
+    }
+    /*only for safari browser  */
+    @supports not (display: flex;) {
+        .main-contact-details {
+            display: block;
+        }
+        .contact-bg {
+            margin-top: 10px;
+        }
+
+        .main-hobbies-icons {
+            margin-top: 10px;
+        }
     }
     .contact-bg {
         width: 100%;
@@ -543,5 +518,54 @@
     }
     .MuiInputBase-inputMultiline {
         height: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 2560px) and (min-width: 1500px) {
+    .car-icon {
+        width: 300px;
+        height: 300px;
+    }
+    .car-icon > svg {
+        font-size: 5.5rem !important;
+    }
+}
+
+/* for tablet */
+@media only screen and (max-width: 1000px) and (min-width: 700px) {
+    .img-box {
+        width: 50vw;
+        height: 82%;
+    }
+    .circle {
+        margin-left: -3.1%;
+    }
+    .car-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .contact-bg {
+        width: 90vw;
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    .circle {
+        /* margin-left: -2.79%; */
+        margin-left: -2.65%;
+    }
+}
+@media only screen and (max-width: 2000px) and (min-width: 1400px) {
+    .img-box {
+        width: 40vw;
+        height: 40vw;
+    }
+    .circle {
+        margin-left: -2.6%;
+    }
+}
+@media only screen and (min-width: 2000px) {
+    .circle {
+        margin-left: -2.35%;
     }
 }

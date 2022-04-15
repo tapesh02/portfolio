@@ -275,8 +275,12 @@
     display: flex;
 }
 
+.main-contact-form {
+    display: block !important;
+}
+
 .contact-form {
-    width: 40%;
+    width: 95% !important;
     margin: 2vw;
 }
 
@@ -466,7 +470,7 @@
         align-items: center;
     }
     /*only for safari browser  */
-    @supports not (display: flex;) {
+    @supports not (display: flex) {
         .main-contact-details {
             display: block;
         }

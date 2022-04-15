@@ -308,9 +308,6 @@ em {
 
 @media not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {
-        .main-project-section,
-        .main-blog-card {
-        }
         .main-project-section > div {
             margin: 1vw;
         }

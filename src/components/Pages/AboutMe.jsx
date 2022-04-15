@@ -38,6 +38,10 @@ const AboutMe = () => {
         message: "",
     });
     const [showMessage, setShowMessage] = useState(false);
+    const [showErrorName, setShowErrorName] = useState(false);
+    const [showErrorEmail, setShowErrorEmail] = useState(false);
+    const [showErrorPhone, setShowErrorPhone] = useState(false);
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -52,18 +56,33 @@ const AboutMe = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        emailjs.send(serviceID, tempID, values, "G9e7dTWheuxDkmHUR").then(
-            function (response) {
-                console.log(response.status);
-                setShowMessage(true);
-                window.location.reload();
-            },
-            function (error) {
-                window.alert("Technical error, the message was not sent");
-                console.log(error);
-            }
-        );
+
+        setShowErrorName(false);
+        setShowErrorEmail(false);
+        setShowErrorPhone(false);
+        setShowErrorMessage(false);
+
+        if (values.name.length <= 5) {
+            setShowErrorName(true);
+        } else if (values.email.length <= 5) {
+            setShowErrorEmail(true);
+        } else if (values.phone.length <= 6) {
+            setShowErrorPhone(true);
+        } else if (values.message.length < 5) {
+            setShowErrorMessage(true);
+        } else {
+            emailjs.send(serviceID, tempID, values, "G9e7dTWheuxDkmHUR").then(
+                function (response) {
+                    setShowMessage(response.status === 200 ? true : false);
+                    setTimeout(() => window.location.reload(), 5000);
+                },
+                function (error) {
+                    window.alert("Technical error, the message was not sent");
+                }
+            );
+        }
     };
+
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
         if (scrolled > 300) {
@@ -94,14 +113,14 @@ const AboutMe = () => {
                     <Box className="main-about-title-intro">
                         <Typography className="about-title">PowerApps Developer, Full-stack Developer & UI/UX Designer</Typography>
                         <Typography className="about-intro">
-                            I'm obsessed with making things creative, and more keen towards making things better and have been working as a web developer and software developer since past several
-                            years. I have written my first HTML code when i was 16 years, which then made me more curious to pursue my career as web designer and developer during my college days.
-                            Moreover, I have been actively involved in creating best web designs for my clients, which are mostly starups and some of them are large business firms. I also started
-                            freelancing, when I completed my masters from Irealnd, where I help people who are in need of some creative web design within the limited time span.
+                            I'm obsessed with making things creative and more keen on making things better. I have been working as a web developer and software developer for the past few years. I
+                            wrote my first HTML code when I was 16 years old, which then made me more curious about pursuing my career as a web designer and developer during my college days. Moreover,
+                            I have been actively involved in creating the best web designs for my clients, which are mostly start-ups, and some of them are large business firms. I also started
+                            freelancing when I completed my master's in Ireland, where I helped people who are in need of some creative web design within a limited time span.
                         </Typography>
                         <Typography className="about-intro">
-                            My speciality lies in creating dynamic and catchy Front-end web design and developing them, as well as designing the hybrid mobile apps using power apps, power automate and
-                            dynamic 365. Apart form work, I also prefer to go on solo trips, attend the developers conferences, watch football matches and hangout with friends.
+                            My specialty lies in creating dynamic and catchy front-end web designs and developing them, as well as designing hybrid mobile apps using Power Apps, Power Automate, and
+                            Dynamic 365. Apart from work, I also prefer to go on solo trips, attend developer conferences, watch football matches, and hang out with friends.
                         </Typography>
                     </Box>
                     <Box className="about-details">
@@ -155,7 +174,7 @@ const AboutMe = () => {
                 </Box>
             </Box>
             <Box style={{ width: "100%", margin: "2% auto", textAlign: "center" }}>
-                <Button variant="contained" endIcon={<GetApp className="icon" />} className="download-btn" onClick={onDownloadCv}>
+                <Button variant="contained" className="download-btn" onClick={onDownloadCv}>
                     Download
                 </Button>
             </Box>
@@ -354,18 +373,21 @@ const AboutMe = () => {
                 <Box className="main-contact-details">
                     <Box className="contact-bg">
                         <Box className="contact-form">
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} autoComplete="off">
                                 <TextField
                                     id="outlined-full-width"
                                     name="name"
                                     type="text"
                                     value={values.name}
                                     onChange={handleChange}
-                                    placeholder="Name"
                                     required
+                                    placeholder="Name"
                                     fullWidth
                                     margin="normal"
                                     variant="outlined"
+                                    autoComplete="off"
+                                    error={showErrorName}
+                                    helperText={showErrorName ? "name required minimum 6 character" : ""}
                                 />
 
                                 <TextField
@@ -379,6 +401,8 @@ const AboutMe = () => {
                                     fullWidth
                                     margin="normal"
                                     variant="outlined"
+                                    error={showErrorEmail}
+                                    helperText={showErrorEmail ? "email required minimum 6 character" : ""}
                                 />
 
                                 <TextField
@@ -392,6 +416,8 @@ const AboutMe = () => {
                                     fullWidth
                                     margin="normal"
                                     variant="outlined"
+                                    error={showErrorPhone}
+                                    helperText={showErrorPhone ? "phone required minimum 7 number" : ""}
                                 />
 
                                 <TextField
@@ -407,6 +433,8 @@ const AboutMe = () => {
                                     variant="outlined"
                                     multiline
                                     rows={10}
+                                    error={showErrorMessage}
+                                    helperText={showErrorMessage ? "message required minimum 6 character" : ""}
                                 />
                                 <Button className="send-btn" type="submit">
                                     {" "}

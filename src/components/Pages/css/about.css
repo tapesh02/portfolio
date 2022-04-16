@@ -267,6 +267,9 @@
     text-transform: uppercase;
 }
 
+.main-contact-details {
+    margin-top: 4%;
+}
 .contact-bg {
     width: 70vw;
     background-color: #ffffff;

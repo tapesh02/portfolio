@@ -27,7 +27,7 @@ import muiicon from "../../images/icons/muiicon.png";
 
 const AboutMe = () => {
     const onDownloadCv = () => {
-        saveAs("/files/resume.docx", "resume.docx");
+        saveAs("/files/Tapesh's Resume.docx", "Tapesh's Resume.docx");
     };
 
     const [visible, setVisible] = useState(false);
@@ -266,8 +266,8 @@ const AboutMe = () => {
                 </Box>
                 <Box className="main-resume-overview">
                     <p className="resume-overviewText">
-                        Motivated Junior developer with 3+ years of progressive experience in the IT industry. Offering expertise in HTML, CSS, and JavaScript, with aptitude in SQL server, PowerApps
-                        and Power Automate. An energetic self-starter and team builder able to navigate high-stress situations and achieve goals on time and under budget.
+                        Motivated Web developer with 2+ years of progressive experience in the IT industry. Offering expertise in Web development, and eye-catching User-Interface, with aptitude in
+                        Power Platform (office 365 suits). An energetic self-starter and team builder able to navigate high-stress situations and achieve goals on time and under budget.
                     </p>
                 </Box>
                 <Box className="resume-details">
@@ -308,7 +308,7 @@ const AboutMe = () => {
                             <Box className="education-details">
                                 <div className="circle"> </div>
                                 <div className="not-circle" data-aos="zoom-in-up">
-                                    <p className="resume-title">SOFTWARE DEVELOPER</p>
+                                    <p className="resume-title">APPLICATION DEVELOPER</p>
                                     <p className="resume-year"> 2020-Present</p>
                                     <p className="resume-location">Kare, Newbridge, Ireland</p>
                                 </div>

@@ -5,12 +5,16 @@
 /.pnp
 .pnp.js
 .env
+.firebaserc
+firebase.json
 
 # testing
 /coverage
 
 # production
 /build
+.firebase
+.github
 
 #files 
 /public/files

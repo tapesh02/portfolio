@@ -34,13 +34,13 @@ const Home = () => {
                     Find more
                 </Button>
                 <Box className="home-icons">
-                    <Button className="giticon-btn" disableElevation href="https://github.com/tapesh02" target="_blank">
+                    <Button className="giticon-btn" disableElevation href="https://github.com/tapesh02" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className="gitIcon" icon={faGithub} />
                     </Button>
-                    <Button className="giticon-btn" disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank">
+                    <Button className="giticon-btn" disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className="dribbleIcon" icon={faDribbble} />
                     </Button>
-                    <Button className="giticon-btn" disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank">
+                    <Button className="giticon-btn" disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className="behanceIcon" icon={faBehance} />
                     </Button>
                 </Box>
@@ -57,13 +57,13 @@ const Home = () => {
                         Find more
                     </Button>
                     <Box className="m-home-icons">
-                        <Button disableElevation href="https://github.com/tapesh02" target="_blank">
+                        <Button disableElevation href="https://github.com/tapesh02" target="_blank" rel="noopener noreferrer ">
                             <FontAwesomeIcon className="gitIcon" icon={faGithub} />
                         </Button>
-                        <Button disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank">
+                        <Button disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank" rel="noopener noreferrer ">
                             <FontAwesomeIcon className="dribbleIcon" icon={faDribbble} />
                         </Button>
-                        <Button disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank">
+                        <Button disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank" rel="noopener noreferrer ">
                             <FontAwesomeIcon className="behanceIcon" icon={faBehance} />
                         </Button>
                     </Box>

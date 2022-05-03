@@ -9,7 +9,7 @@ import "../../components/Pages/css/about.css";
 import { Box, Button, Divider, SvgIcon, TextField, Typography } from "@material-ui/core";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { ArrowUpward, CardTravel, GetApp, LibraryMusic, Movie, People, SportsSoccer } from "@material-ui/icons";
+import { ArrowUpward, CardTravel, LibraryMusic, Movie, People, SportsSoccer } from "@material-ui/icons";
 
 import myimg from "../../images/myimg.jpeg";
 import powerappsicon from "../../images/icons/powerappsicon.png";
@@ -451,7 +451,7 @@ const AboutMe = () => {
                                 </p>
                                 <p className="connected-title">Phone: +353 0899876363</p>
                                 <p className="connected-title">Email: pateltapesh505@gmail.com</p>
-                                <p className="connected-title">Newbridge, Ireland</p>
+                                <p className="connected-title">Address: Newbridge, Ireland</p>
                             </Box>
                             <Box className="connected-icons">
                                 <SvgIcon fontSize="medium" viewBox="0 0 36 29.238">

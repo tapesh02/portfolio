@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Divider, Typography } from "@material-ui/core";
+import { Box, Button, Divider, Typography, Accordion, AccordionDetails, AccordionSummary } from "@material-ui/core";
 import { Markup } from "interweave";
 import Aos from "aos";
 
 import "../Pages/css/project.css";
 import "../../../node_modules/aos/dist/aos.css";
 
-import { Facebook, Instagram, LinkedIn, Twitter, ArrowUpward } from "@material-ui/icons";
+import { Facebook, Instagram, LinkedIn, Twitter, ArrowUpward, ExpandMore } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDribbble } from "@fortawesome/free-brands-svg-icons";
 
@@ -150,6 +150,46 @@ const Projects = () => {
                       })
                     : null}
 
+                <Box>
+                    <Box className="main-blog-header">
+                        <p className="blog-header"> Demo Apps</p>
+                        <span>
+                            {" "}
+                            <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
+                        </span>
+                    </Box>
+                    <Box style={{ marginBottom: "1%", marginTop: "1%" }}>
+                        <Accordion>
+                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1a-content" id="panel1a-header">
+                                <h3>MovieHunt </h3>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    A movie web app where a user can search and watch for any of his favourite movie trailer or tv show trailer.{" "}
+                                    <span style={{ fontWeight: "bolder" }}>New feature comming soon : </span>Where user can watch movies, add to watchlist and share with friends and family.
+                                    <Button href="https://publicjobs.ie/en/job-search?category=20&searchphrase=" target="_blank" rel="noopener noreferrer" color="inherit">
+                                        Source code
+                                    </Button>
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1a-content" id="panel1a-header">
+                                <h3>SendCryp </h3>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    A crypto web app where a user can send any cryptocurrencies around the world on ethereum bloackhain.{" "}
+                                    <span style={{ fontWeight: "bolder" }}>New feature comming soon : </span> Where user can keep track of price change, add to watchlist and receive email notification
+                                    on funds received.
+                                    <Button href="https://publicjobs.ie/en/job-search?category=20&searchphrase=" target="_blank" rel="noopener noreferrer" color="inherit">
+                                        Source Code
+                                    </Button>
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    </Box>
+                </Box>
                 <Box className="main-blog-follow-section">
                     <p className="blog-follow-title"> Want to get latest update of my blogs?</p>
                     <p className="blog-follow-subtitle"> Follow me</p>

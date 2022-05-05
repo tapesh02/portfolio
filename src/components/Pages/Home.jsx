@@ -40,7 +40,7 @@ const Home = () => {
                     <Button className="giticon-btn" disableElevation href="https://dribbble.com/Tapesh_Patel" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className="dribbleIcon" icon={faDribbble} />
                     </Button>
-                    <Button className="giticon-btn" disableElevation href="https://www.behance.net/tapeshpatell" target="_blank" rel="noopener noreferrer">
+                    <Button className="giticon-btn" disableElevation href="https://www.behance.net/tapeshpatel" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className="behanceIcon" icon={faBehance} />
                     </Button>
                 </Box>

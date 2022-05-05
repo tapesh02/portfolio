@@ -152,7 +152,7 @@ const Projects = () => {
 
                 <Box>
                     <Box className="main-blog-header">
-                        <p className="blog-header"> Demo Apps</p>
+                        <p className="blog-header"> Upcoming Projects </p>
                         <span>
                             {" "}
                             <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
@@ -167,8 +167,8 @@ const Projects = () => {
                                 <Typography>
                                     A movie web app where a user can search and watch for any of his favourite movie trailer or tv show trailer.{" "}
                                     <span style={{ fontWeight: "bolder" }}>New feature comming soon : </span>Where user can watch movies, add to watchlist and share with friends and family.
-                                    <Button href="https://publicjobs.ie/en/job-search?category=20&searchphrase=" target="_blank" rel="noopener noreferrer" color="inherit">
-                                        Source code
+                                    <Button href="https://timepasswebapp.herokuapp.com/" target="_blank" rel="noopener noreferrer" color="inherit">
+                                        Click to view
                                     </Button>
                                 </Typography>
                             </AccordionDetails>
@@ -179,10 +179,10 @@ const Projects = () => {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    A crypto web app where a user can send any cryptocurrencies around the world on ethereum bloackhain.{" "}
+                                    A crypto web app where a user can send any cryptocurrencies around the world on ethereum blockhain.{" "}
                                     <span style={{ fontWeight: "bolder" }}>New feature comming soon : </span> Where user can keep track of price change, add to watchlist and receive email notification
                                     on funds received.
-                                    <Button href="https://publicjobs.ie/en/job-search?category=20&searchphrase=" target="_blank" rel="noopener noreferrer" color="inherit">
+                                    <Button href="https://github.com/tapesh02" target="_blank" rel="noopener noreferrer" color="inherit">
                                         Source Code
                                     </Button>
                                 </Typography>

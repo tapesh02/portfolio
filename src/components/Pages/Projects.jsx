@@ -182,8 +182,8 @@ const Projects = () => {
                                     A crypto web app where a user can send any cryptocurrencies around the world on ethereum blockhain.{" "}
                                     <span style={{ fontWeight: "bolder" }}>New feature comming soon : </span> Where user can keep track of price change, add to watchlist and receive email notification
                                     on funds received.
-                                    <Button href="https://github.com/tapesh02" target="_blank" rel="noopener noreferrer" color="inherit">
-                                        Source Code
+                                    <Button href="https://sendcryp-afebd.web.app/home" target="_blank" rel="noopener noreferrer" color="inherit">
+                                        Click to view
                                     </Button>
                                 </Typography>
                             </AccordionDetails>

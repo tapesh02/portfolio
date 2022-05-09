@@ -6,7 +6,7 @@ import Aos from "aos";
 import "../Pages/css/project.css";
 import "../../../node_modules/aos/dist/aos.css";
 
-import { Facebook, Instagram, LinkedIn, Twitter, ArrowUpward, ExpandMore } from "@material-ui/icons";
+import { Instagram, LinkedIn, Twitter, ArrowUpward, ExpandMore } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDribbble } from "@fortawesome/free-brands-svg-icons";
 
@@ -98,7 +98,7 @@ const Projects = () => {
             </div>
             <Box className="main-project-section">
                 {shots
-                    ? shots.map((shot) => {
+                    ? shots?.map((shot) => {
                           return (
                               <Box className="project-section" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" key={shots.id}>
                                   <Box className="main-card">
@@ -195,10 +195,15 @@ const Projects = () => {
                     <p className="blog-follow-subtitle"> Follow me</p>
                 </Box>
                 <Box className="blog-follow-icons">
-                    <Facebook style={{ fontSize: "2vw ", color: "#FE4747" }} />
-                    <Twitter style={{ fontSize: "2vw ", color: "#FE4747" }} />
-                    <LinkedIn style={{ fontSize: "2vw ", color: "#FE4747" }} />
-                    <Instagram style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    <a href="https://twitter.com/tapesh2" target="_blank" rel="noopener noreferrer">
+                        <Twitter style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/tapesh-patel-276a65a4/" target="_blank" rel="noopener noreferrer">
+                        <LinkedIn style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    </a>
+                    <a href="https://www.instagram.com/tapesh__patel/" target="_blank" rel="noopener noreferrer">
+                        <Instagram style={{ fontSize: "2vw ", color: "#FE4747" }} />
+                    </a>
                 </Box>
             </Box>
         </>

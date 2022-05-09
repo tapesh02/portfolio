@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme, styled } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -207,12 +207,12 @@ const MobileNavBar = () => {
                         </List>
                         {/* <Divider /> */}
                         <Box className={classes.socialicons}>
-                            <ListItemLink href="https://twitter.com/tapesh2">
+                            <ListItemLink href="https://twitter.com/tapesh2" target="_blank" rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faTwitter} />
                                 </ListItemIcon>
                             </ListItemLink>
-                            <ListItemLink href="https://www.linkedin.com/in/tapesh-patel-276a65a4/">
+                            <ListItemLink href="https://www.linkedin.com/in/tapesh-patel-276a65a4/" target="_blank" rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faLinkedin} />
                                 </ListItemIcon>
@@ -222,12 +222,12 @@ const MobileNavBar = () => {
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faDribbble} />
                                 </ListItemIcon>
                             </ListItemLink>
-                            <ListItemLink href="https://medium.com/@tapesh.patel">
+                            <ListItemLink href="https://medium.com/@tapesh.patel" target="_blank" rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faMedium} />
                                 </ListItemIcon>
                             </ListItemLink>
-                            <ListItemLink href="https://www.behance.net/tapeshpatel">
+                            <ListItemLink href="https://www.behance.net/tapeshpatel" target="_blank" rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faBehance} />
                                 </ListItemIcon>

@@ -13,7 +13,7 @@ const Error = () => {
 
     return (
         <>
-            <Box data-aos="fade-zoom-in">
+            <Box data-aos="fade-zoom-in" className="error-main">
                 <p class="zoom-area"></p>
                 <section class="error-container">
                     <span class="four">

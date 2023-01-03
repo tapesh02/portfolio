@@ -1,3 +1,12 @@
+.error-main {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+}
+
 .error-container {
     text-align: center;
     font-size: 106px;

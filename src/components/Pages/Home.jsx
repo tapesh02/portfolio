@@ -7,12 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const useStyles = makeStyles((theme) => ({
     hideMobile: {
+        height: "calc(100vh - 64px)",
         [theme.breakpoints.down("xs")]: {
             display: "none",
         },
     },
 
     hideDesktop: {
+        height: "calc(100vh - 64px)",
         [theme.breakpoints.up(600)]: {
             display: "none",
         },
@@ -22,7 +24,7 @@ const Home = () => {
     const classes = useStyles();
     return (
         <>
-            <div className={classes.hideMobile} style={{ height: "87.9vh" }}>
+            <div className={classes.hideMobile}>
                 <Box className="home-main">
                     <h3 className="title">Tapesh patel </h3>
                     <h1 className="header-1 slide-in-left "> full-stack developer</h1>
@@ -46,7 +48,7 @@ const Home = () => {
                 </Box>
             </div>
 
-            <div className={classes.hideDesktop} style={{ height: "87.9vh" }}>
+            <div className={classes.hideDesktop}>
                 <Box className="m-home-main">
                     <h3 className="m-title">Tapesh patel </h3>
                     <h1 className="m-header-1 slide-in-left "> full-stack developer</h1>

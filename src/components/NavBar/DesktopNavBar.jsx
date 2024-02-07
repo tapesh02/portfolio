@@ -24,17 +24,31 @@ const DesktopNavBar = () => {
             <AppBar position="static" color="transparent" elevation={0} className={classes.showDesktop}>
                 <Toolbar>
                     <Typography style={{ flexGrow: "1" }}>
-                        <Link to="/home">
+                        <Link
+                            to="/
+                        ">
                             <LogoComp />
                         </Link>
                     </Typography>
-                    <Button color="inherit" component={NavLink} to="/home" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                    <Button
+                        color="inherit"
+                        component={NavLink}
+                        to="/"
+                        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
                         Home
                     </Button>
-                    <Button color="inherit" component={NavLink} to="/aboutme" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                    <Button
+                        color="inherit"
+                        component={NavLink}
+                        to="/aboutme"
+                        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
                         About me
                     </Button>
-                    <Button color="inherit" component={NavLink} to="/projects" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                    <Button
+                        color="inherit"
+                        component={NavLink}
+                        to="/projects"
+                        style={({ isActive }) => (isActive ? activeStyle : undefined)}>
                         Projects
                     </Button>
                 </Toolbar>

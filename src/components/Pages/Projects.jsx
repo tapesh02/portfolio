@@ -46,7 +46,6 @@ const Projects = () => {
                 const responseJson = await response.json();
                 const data = responseJson.items;
                 setArticles(data);
-                // console.log(data); //here you are getting the data
             } catch (error) {
                 console.log(error);
             }

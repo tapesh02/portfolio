@@ -157,11 +157,16 @@ const MobileNavBar = () => {
                 <AppBar position="static" color="transparent" elevation={0}>
                     <Toolbar style={{ alignItems: "center" }}>
                         <Typography style={{ flexGrow: "1", marginTop: "2%" }}>
-                            <Link to="/home">
+                            <Link to="/">
                                 <LogoComp />
                             </Link>
                         </Typography>
-                        <IconButton color="inherit" aria-label="open drawer" edge="end" onClick={handleDrawerOpen} className={clsx(open && classes.hide)}>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="end"
+                            onClick={handleDrawerOpen}
+                            className={clsx(open && classes.hide)}>
                             <MenuIcon fontSize="large" />
                         </IconButton>
                     </Toolbar>
@@ -176,7 +181,13 @@ const MobileNavBar = () => {
                             paper: classes.drawerPaper,
                         }}>
                         <div className={classes.drawerHeader}>
-                            <IconButton onClick={handleDrawerClose}>{theme.direction === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon fontSize="large" style={{ color: "white" }} />}</IconButton>
+                            <IconButton onClick={handleDrawerClose}>
+                                {theme.direction === "rtl" ? (
+                                    <ChevronLeftIcon />
+                                ) : (
+                                    <ChevronRightIcon fontSize="large" style={{ color: "white" }} />
+                                )}
+                            </IconButton>
                         </div>
                         {/* <Divider /> */}
                         <Box className={classes.headerimg}>
@@ -186,7 +197,7 @@ const MobileNavBar = () => {
                             </Typography>
                         </Box>
                         <List>
-                            <ListItemLink href="/home" style={{ color: "white" }}>
+                            <ListItemLink href="/" style={{ color: "white" }}>
                                 <ListItemIcon>
                                     <Home className={classes.menuicons} />
                                 </ListItemIcon>
@@ -212,7 +223,10 @@ const MobileNavBar = () => {
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faTwitter} />
                                 </ListItemIcon>
                             </ListItemLink>
-                            <ListItemLink href="https://www.linkedin.com/in/tapesh-patel-276a65a4/" target="_blank" rel="noopener noreferrer">
+                            <ListItemLink
+                                href="https://www.linkedin.com/in/tapesh-patel-276a65a4/"
+                                target="_blank"
+                                rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faLinkedin} />
                                 </ListItemIcon>
@@ -222,20 +236,36 @@ const MobileNavBar = () => {
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faDribbble} />
                                 </ListItemIcon>
                             </ListItemLink>
-                            <ListItemLink href="https://medium.com/@tapesh.patel" target="_blank" rel="noopener noreferrer">
+                            <ListItemLink
+                                href="https://medium.com/@tapesh.patel"
+                                target="_blank"
+                                rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faMedium} />
                                 </ListItemIcon>
                             </ListItemLink>
-                            <ListItemLink href="https://www.behance.net/tapeshpatel" target="_blank" rel="noopener noreferrer">
+                            <ListItemLink
+                                href="https://www.behance.net/tapeshpatel"
+                                target="_blank"
+                                rel="noopener noreferrer">
                                 <ListItemIcon>
                                     <FontAwesomeIcon className={classes.famenuicons} icon={faBehance} />
                                 </ListItemIcon>
                             </ListItemLink>
                         </Box>
-                        <div style={{ display: "inline-flex", gap: "10px", alignItems: "center", justifyContent: "center", padding: "inherit" }}>
+                        <div
+                            style={{
+                                display: "inline-flex",
+                                gap: "10px",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                padding: "inherit",
+                            }}>
                             <FontAwesomeIcon className={classes.famenuicons} icon={faCopyright} />
-                            <p style={{ color: "white", letterSpacing: "1.2px", padding: "0%", margin: "0%" }}> Copyright reserved by Tapesh Patel</p>
+                            <p style={{ color: "white", letterSpacing: "1.2px", padding: "0%", margin: "0%" }}>
+                                {" "}
+                                Copyright reserved by Tapesh Patel
+                            </p>
                         </div>
                     </Drawer>
                 </Backdrop>

@@ -60,14 +60,16 @@
 }
 
 .about-details {
-    display: flex;
     height: 35%;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2em 2em 2em;
+    justify-items: stretch;
     align-items: center;
     align-content: center;
+    padding: 0 2em;
 }
-.about-details1,
-.about-details2 {
+.about-details-content {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -79,23 +81,24 @@
     align-content: center;
 }
 .about-details-text {
+    font-weight: bold !important;
     font-size: 1.05vw !important;
 }
 .span-text {
-    font-weight: bold;
+    font-weight: normal;
 }
 .download-btn,
-.arrowicon {
+.arrowIcon {
     background-color: #ff0000 !important;
     color: white !important;
 }
 .download-btn:hover,
-.arrowicon:hover {
+.arrowIcon:hover {
     background-color: white !important;
     color: #ff0000 !important;
 }
 
-.arrowiconBtn {
+.arrowIcon-btn {
     position: fixed;
     width: 5%;
     right: 2.5%;
@@ -107,11 +110,11 @@
 }
 
 @media screen and (max-width: 600px) {
-    .arrowiconBtn {
+    .arrowIcon-btn {
         right: 10%;
     }
 }
-.arrowicon {
+.arrowIcon {
     border-radius: 50%;
     font-size: 1.3em !important;
 }
@@ -261,7 +264,7 @@
     font-size: 2.1875rem !important;
 }
 
-.hobbie-name {
+.hobby-name {
     font-size: 1.1vw;
     font-weight: 500;
     text-transform: uppercase;
@@ -327,6 +330,12 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+
+.divider {
+    width: inherit !important;
+    background-color: #fe4747 !important;
+    height: 3px !important;
 }
 
 /* for mobile screen  */
@@ -462,7 +471,7 @@
     .car-icon > svg {
         font-size: 1rem !important;
     }
-    .hobbie-name {
+    .hobby-name {
         font-size: 0.4rem !important;
         font-weight: 500;
         text-transform: capitalize;

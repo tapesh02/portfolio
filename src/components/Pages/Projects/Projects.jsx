@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, Divider, Typography, Accordion, AccordionDetails, AccordionSummary } from "@material-ui/core";
 import { Markup } from "interweave";
 import Aos from "aos";
+import { toggleVisible, scrollToTop } from "../../../helpers";
 
-import "../Pages/css/project.css";
-import "../../../node_modules/aos/dist/aos.css";
+import "../../../css/project.css";
+import "../../../../node_modules/aos/dist/aos.css";
 
 import { Instagram, LinkedIn, Twitter, ArrowUpward, ExpandMore } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,17 +19,12 @@ const Projects = () => {
     useEffect(() => {
         const getDribbleShots = async () => {
             const dribbleAccessToken = `${process.env.REACT_APP_DRIBBLE_ACCESS_TOKEN}`;
-            const dribbblePage = 1;
-            const SHOTS_PER_PAGE = 10;
-            const dribbleapi = `https://api.dribbble.com/v2/user/shots?access_token=${dribbleAccessToken}&page=${dribbblePage}&per_page=${SHOTS_PER_PAGE}`;
+            const dribble = `https://api.dribbble.com/v2/user/shots?access_token=${dribbleAccessToken}&page=1&per_page=10`;
 
-            const dResponse = await fetch(dribbleapi);
+            const response = await fetch(dribble);
             try {
-                const dResponseJson = await dResponse.json();
-                const dshots = dResponseJson;
-                console.log(dResponseJson);
-                setShots(dshots);
-                console.log(dshots);
+                const responseJson = await response.json();
+                setShots(responseJson);
             } catch (error) {
                 console.log(error);
             }
@@ -37,7 +33,7 @@ const Projects = () => {
     }, []);
 
     useEffect(() => {
-        const getmediumapi = async () => {
+        const getMediumPosts = async () => {
             const mediumapi = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@tapesh.patel";
 
             const response = await fetch(mediumapi, { headers: { Accept: "application/json" } });
@@ -50,7 +46,7 @@ const Projects = () => {
                 console.log(error);
             }
         };
-        getmediumapi();
+        getMediumPosts();
     }, []);
 
     useEffect(() => {
@@ -65,22 +61,14 @@ const Projects = () => {
         return () => openInNewTab(url);
     };
 
-    const toggleVisible = () => {
-        const scrolled = document.documentElement.scrollTop;
-        if (scrolled > 300) {
-            setVisible(true);
-        } else if (scrolled <= 300) {
-            setVisible(false);
-        }
+    const handleToggle = () => {
+        toggleVisible(300, setVisible);
     };
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+    const handleScroll = () => {
+        scrollToTop(0, "smooth");
     };
-    window.addEventListener("scroll", toggleVisible);
+    window.addEventListener("scroll", handleToggle);
 
     return (
         <>
@@ -88,8 +76,7 @@ const Projects = () => {
                 <Box className="main-blog-header">
                     <p className="blog-header"> UI/UX </p>
                     <span>
-                        {" "}
-                        <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
+                        <Divider className="divider" />
                     </span>
                 </Box>
             </Box>
@@ -97,7 +84,7 @@ const Projects = () => {
                 <ArrowUpward
                     style={{ display: visible ? "inline-block" : "none" }}
                     className="arrowicon2"
-                    onClick={scrollToTop}
+                    onClick={handleScroll}
                 />
             </div>
             <Box className="main-project-section">
@@ -138,8 +125,7 @@ const Projects = () => {
                 <Box className="main-blog-header">
                     <p className="blog-header"> Blogs</p>
                     <span>
-                        {" "}
-                        <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
+                        <Divider className="divider" />
                     </span>
                 </Box>
                 {articles
@@ -181,8 +167,7 @@ const Projects = () => {
                     <Box className="main-blog-header">
                         <p className="blog-header"> Upcoming Projects </p>
                         <span>
-                            {" "}
-                            <Divider style={{ width: "inherit", backgroundColor: "#FE4747", height: "3px" }} />
+                            <Divider className="divider" />
                         </span>
                     </Box>
                     <Box style={{ marginBottom: "1%", marginTop: "1%" }}>
@@ -191,16 +176,16 @@ const Projects = () => {
                                 expandIcon={<ExpandMore />}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header">
-                                <h3>MovieHunt </h3>
+                                <h3>Cinematic Guidebook </h3>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    A movie web app where a user can search and watch for any of his favourite movie
+                                    A movie web app where a user can search and watch for any of his favorite movie
                                     trailer or tv show trailer.{" "}
-                                    <span style={{ fontWeight: "bolder" }}>New feature comming soon : </span>Where user
+                                    <span style={{ fontWeight: "bolder" }}>New feature coming soon : </span>Where user
                                     can watch movies, add to watchlist and share with friends and family.
                                     <Button
-                                        href="https://timepasswebapp.herokuapp.com/"
+                                        href="https://cinematic-guidebook.vercel.app/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         color="inherit">

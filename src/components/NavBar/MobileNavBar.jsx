@@ -1,28 +1,36 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import {
+    Drawer,
+    AppBar,
+    Toolbar,
+    List,
+    Typography,
+    IconButton,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Backdrop,
+    Box,
+} from "@material-ui/core";
 
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
+
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import { Assignment, Home, Person } from "@material-ui/icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDribbble, faTwitter, faMedium, faBehance, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import LogoComp from "../Logo/LogoComp";
-import profileimg from "../../images/profileimg.jpg";
-import { Link } from "react-router-dom";
-import { Backdrop, Box } from "@material-ui/core";
+
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
+import { menu } from "../../dataProviders";
+import { getImage } from "../../imageHelper";
 
 const useStyles = makeStyles((theme) => ({
     hideMobile: {
@@ -58,18 +66,18 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
         justifyContent: "flex-start",
     },
-    menuicons: {
+    menuIcons: {
         color: "white",
         width: "2rem",
         height: "2rem",
     },
-    famenuicons: {
+    faMenuIcons: {
         width: "2em",
         height: "2em",
         color: "white",
     },
 
-    socialicons: {
+    socialIcons: {
         display: "inline-flex",
         // marginTop: "50%",
         marginTop: "auto",
@@ -108,7 +116,8 @@ const useStyles = makeStyles((theme) => ({
             },
         },
     },
-    headerimg: {
+
+    headerImg: {
         gap: "5%",
         color: "white",
         display: "flex",
@@ -122,7 +131,6 @@ const useStyles = makeStyles((theme) => ({
         objectFit: "cover",
         margin: "2%",
         borderRadius: "50%",
-        // boxShadow: "1px 2px 6px white",
         border: "5px white solid",
     },
 }));
@@ -131,6 +139,14 @@ const MobileNavBar = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+
+    const icons = [
+        { id: 1, icon: faTwitter, link: "https://twitter.com/tapesh2" },
+        { id: 2, icon: faLinkedin, link: "https://www.linkedin.com/in/tapesh-patel-276a65a4/" },
+        { id: 3, icon: faDribbble, link: "https://dribbble.com/Tapesh_Patel" },
+        { id: 4, icon: faBehance, link: "https://www.behance.net/tapeshpatel2" },
+        { id: 4, icon: faMedium, link: "https://medium.com/@tapesh.patel" },
+    ];
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -150,127 +166,106 @@ const MobileNavBar = () => {
         return <ListItem button component="a" {...props} />;
     }
 
+    const RenderNavMenu = () =>
+        menu.map((item, index) => (
+            <List key={item.name}>
+                <ListItemLink href={item.link} style={{ color: "white" }}>
+                    <ListItemIcon>
+                        {index === 0 && <Home className={classes.menuIcons} />}
+                        {index === 1 && <Assignment className={classes.menuIcons} />}
+                        {index === 2 && <Person className={classes.menuIcons} />}
+                    </ListItemIcon>
+                    <ListItemText primary={item.name} />
+                </ListItemLink>
+            </List>
+        ));
+
+    const RenderIcons = () =>
+        icons.map((_icon) => {
+            const { id, icon, link } = _icon;
+            return (
+                <ListItemLink key={id} href={link} target="_blank" rel="noopener noreferrer">
+                    <ListItemIcon>
+                        <FontAwesomeIcon className={classes.faMenuIcons} icon={icon} />
+                    </ListItemIcon>
+                </ListItemLink>
+            );
+        });
+
     return (
-       
-            <div className={(classes.root, classes.hideMobile)}>
-                <CssBaseline />
-                <AppBar position="static" color="transparent" elevation={0}>
-                    <Toolbar style={{ alignItems: "center" }}>
-                        <Typography style={{ flexGrow: "1", marginTop: "2%" }}>
-                            <Link to="/">
-                                <LogoComp />
-                            </Link>
-                        </Typography>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            edge="end"
-                            onClick={handleDrawerOpen}
-                            className={clsx(open && classes.hide)}>
-                            <MenuIcon fontSize="large" />
+        <div className={(classes.root, classes.hideMobile)}>
+            <CssBaseline />
+            <AppBar position="static" color="transparent" elevation={0}>
+                <Toolbar style={{ alignItems: "center" }}>
+                    <Typography style={{ flexGrow: "1", marginTop: "2%" }}>
+                        <Link to="/">
+                            <LogoComp />
+                        </Link>
+                    </Typography>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="end"
+                        onClick={handleDrawerOpen}
+                        className={clsx(open && classes.hide)}>
+                        <MenuIcon fontSize="large" />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+            <Backdrop className={classes.backdrop} open={open} onClick={handleDrawerClose}>
+                <Drawer
+                    className={classes.drawer}
+                    variant="persistent"
+                    anchor="right"
+                    open={open}
+                    classes={{
+                        paper: classes.drawerPaper,
+                    }}>
+                    <div className={classes.drawerHeader}>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === "rtl" ? (
+                                <ChevronLeftIcon />
+                            ) : (
+                                <ChevronRightIcon fontSize="large" style={{ color: "white" }} />
+                            )}
                         </IconButton>
-                    </Toolbar>
-                </AppBar>
-                <Backdrop className={classes.backdrop} open={open} onClick={handleDrawerClose}>
-                    <Drawer
-                        className={classes.drawer}
-                        variant="persistent"
-                        anchor="right"
-                        open={open}
-                        classes={{
-                            paper: classes.drawerPaper,
+                    </div>
+
+                    <Box className={classes.headerImg}>
+                        <img
+                            src={getImage("profileImg2")}
+                            alt="profileImg2"
+                            width="90"
+                            height="90"
+                            className={classes.img}
+                        />
+                        <Typography variant="h3" style={{ fontFamily: "Varela Round, sans-serif" }}>
+                            Tapesh Patel
+                        </Typography>
+                    </Box>
+
+                    <RenderNavMenu />
+
+                    <Box className={classes.socialIcons}>
+                        <RenderIcons />
+                    </Box>
+                    <div
+                        style={{
+                            display: "inline-flex",
+                            gap: "10px",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "inherit",
                         }}>
-                        <div className={classes.drawerHeader}>
-                            <IconButton onClick={handleDrawerClose}>
-                                {theme.direction === "rtl" ? (
-                                    <ChevronLeftIcon />
-                                ) : (
-                                    <ChevronRightIcon fontSize="large" style={{ color: "white" }} />
-                                )}
-                            </IconButton>
-                        </div>
-                        {/* <Divider /> */}
-                        <Box className={classes.headerimg}>
-                            <img src={profileimg} alt="myimg" width="90" height="90" className={classes.img} />
-                            <Typography variant="h3" style={{ fontFamily: "Varela Round, sans-serif" }}>
-                                Tapesh Patel
-                            </Typography>
-                        </Box>
-                        <List>
-                            <ListItemLink href="/" style={{ color: "white" }}>
-                                <ListItemIcon>
-                                    <Home className={classes.menuicons} />
-                                </ListItemIcon>
-                                <ListItemText primary="Home" />
-                            </ListItemLink>
-                            <ListItemLink href="/aboutme" style={{ color: "white" }}>
-                                <ListItemIcon>
-                                    <Person className={classes.menuicons} />
-                                </ListItemIcon>
-                                <ListItemText primary="About Me" style={{ color: "white" }} />
-                            </ListItemLink>
-                            <ListItemLink href="/projects">
-                                <ListItemIcon>
-                                    <Assignment className={classes.menuicons} />
-                                </ListItemIcon>
-                                <ListItemText primary="Projects" style={{ color: "white" }} />
-                            </ListItemLink>
-                        </List>
-                        {/* <Divider /> */}
-                        <Box className={classes.socialicons}>
-                            <ListItemLink href="https://twitter.com/tapesh2" target="_blank" rel="noopener noreferrer">
-                                <ListItemIcon>
-                                    <FontAwesomeIcon className={classes.famenuicons} icon={faTwitter} />
-                                </ListItemIcon>
-                            </ListItemLink>
-                            <ListItemLink
-                                href="https://www.linkedin.com/in/tapesh-patel-276a65a4/"
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                <ListItemIcon>
-                                    <FontAwesomeIcon className={classes.famenuicons} icon={faLinkedin} />
-                                </ListItemIcon>
-                            </ListItemLink>
-                            <ListItemLink href="https://dribbble.com/Tapesh_Patel">
-                                <ListItemIcon>
-                                    <FontAwesomeIcon className={classes.famenuicons} icon={faDribbble} />
-                                </ListItemIcon>
-                            </ListItemLink>
-                            <ListItemLink
-                                href="https://medium.com/@tapesh.patel"
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                <ListItemIcon>
-                                    <FontAwesomeIcon className={classes.famenuicons} icon={faMedium} />
-                                </ListItemIcon>
-                            </ListItemLink>
-                            <ListItemLink
-                                href="https://www.behance.net/tapeshpatel"
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                <ListItemIcon>
-                                    <FontAwesomeIcon className={classes.famenuicons} icon={faBehance} />
-                                </ListItemIcon>
-                            </ListItemLink>
-                        </Box>
-                        <div
-                            style={{
-                                display: "inline-flex",
-                                gap: "10px",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                padding: "inherit",
-                            }}>
-                            <FontAwesomeIcon className={classes.famenuicons} icon={faCopyright} />
-                            <p style={{ color: "white", letterSpacing: "1.2px", padding: "0%", margin: "0%" }}>
-                                {" "}
-                                Copyright reserved by Tapesh Patel
-                            </p>
-                        </div>
-                    </Drawer>
-                </Backdrop>
-            </div>
-       
+                        <FontAwesomeIcon className={classes.faMenuIcons} icon={faCopyright} />
+                        <p style={{ color: "white", letterSpacing: "1.2px", padding: "0%", margin: "0%" }}>
+                            {" "}
+                            Copyright reserved by Tapesh Patel
+                        </p>
+                    </div>
+                </Drawer>
+            </Backdrop>
+        </div>
     );
 };
 

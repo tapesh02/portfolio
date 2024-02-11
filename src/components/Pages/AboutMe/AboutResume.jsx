@@ -1,47 +1,9 @@
 import { Box, Divider } from "@material-ui/core";
 import React from "react";
 import Header from "../../Header/Header";
+import { resumeDetails } from "../../../dataProviders";
 
 const AboutResume = () => {
-    const resumeDetails = [
-        {
-            id: 1,
-            title: "MASTER OF SCIENCE IN INFORMATION SYSTEMS WITH COMPUTING",
-            year: "2017-2019",
-            location: "Dublin Business School, Ireland",
-        },
-        {
-            id: 2,
-            title: "BACHELOR OF ELECTRICAL ENGINEERING",
-            year: "2011-2006",
-            location: "North Maharashtra University, Jalgoan, India",
-        },
-        {
-            id: 3,
-            title: "BOYS TOWN PUBLIC SCHOOL",
-            year: "2009-2010",
-            location: "Pune University Nashik, India",
-        },
-        {
-            id: 4,
-            title: "APPLICATION DEVELOPER",
-            year: "2020-2023",
-            location: "Kare, Newbridge, Ireland",
-        },
-        {
-            id: 5,
-            title: "JUNIOR DEVELOPER",
-            year: "2019-2020",
-            location: "Unipupil Limited, Dublin, Ireland",
-        },
-        {
-            id: 6,
-            title: "JUNIOR DEVELOPER",
-            year: "2017-2019",
-            location: "Global Prospect Media Solutions, Vadodara, India",
-        },
-    ];
-
     const RenderResumeDetails = ({ start, end }) => (
         <Box className="education-section">
             <Box className="education-divider">

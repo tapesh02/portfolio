@@ -5,6 +5,9 @@ name: Deploy to Firebase Hosting on PR
 "on": pull_request
 env:
     REACT_APP_DRIBBLE_ACCESS_TOKEN: ${{secrets.REACT_APP_DRIBBLE_ACCESS_TOKEN}}
+    REACT_APP_EMAIL_SERVICE_ID: ${{secrets.REACT_APP_EMAIL_SERVICE_ID}}
+    REACT_APP_EMAIL_TEMPLATE_ID: ${{secrets.REACT_APP_EMAIL_TEMPLATE_ID}}
+    REACT_APP_EMAIL_SERVICE_PUBLIC_KEY: ${{secrets.REACT_APP_EMAIL_SERVICE_PUBLIC_KEY}}
 jobs:
     build_and_preview:
         if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"

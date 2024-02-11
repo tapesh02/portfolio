@@ -13,3 +13,10 @@ export const scrollToTop = (position, behavior) => {
         behavior: behavior,
     });
 };
+
+export const renderIcon = (value) =>
+    value.map((_icon) => (
+        <a key={_icon.id} href={_icon.link} target="_blank" rel="noopener noreferrer">
+            <img src={_icon.icon} alt="icon" />
+        </a>
+    ));

@@ -15,6 +15,7 @@ import dribble from "./images/icons/dribble.png";
 import instagram from "./images/icons/instagram.png";
 import linkedIn from "./images/icons/linkedin.png";
 import twitter from "./images/icons/twitter.png";
+import behance from "./images/icons/behance.svg";
 
 const images = {
     powerappsIcon,
@@ -34,6 +35,7 @@ const images = {
     instagram,
     linkedIn,
     twitter,
+    behance,
 };
 
 export const getImage = (_images) => {

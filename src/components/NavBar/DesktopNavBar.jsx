@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { menu } from "../../dataProviders";
 
 import LogoComp from "../Logo/LogoComp";
 import { AppBar, Button, makeStyles, Toolbar, Typography } from "@material-ui/core";
@@ -14,10 +15,22 @@ const useStyles = makeStyles((theme) => ({
 
 const DesktopNavBar = () => {
     const classes = useStyles();
+
     const activeStyle = {
         borderBottom: "2px solid #FE4747 ",
         borderRadius: "2px",
     };
+
+    const RenderNavMenu = () =>
+        menu.map((item) => (
+            <Button
+                color="inherit"
+                component={NavLink}
+                to={item.link}
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                {item.name}
+            </Button>
+        ));
     return (
         <AppBar position="static" color="transparent" elevation={0} className={classes.showDesktop}>
             <Toolbar>
@@ -28,27 +41,7 @@ const DesktopNavBar = () => {
                         <LogoComp />
                     </Link>
                 </Typography>
-                <Button
-                    color="inherit"
-                    component={NavLink}
-                    to="/"
-                    style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                    Home
-                </Button>
-                <Button
-                    color="inherit"
-                    component={NavLink}
-                    to="/aboutme"
-                    style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                    About me
-                </Button>
-                <Button
-                    color="inherit"
-                    component={NavLink}
-                    to="/projects"
-                    style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                    Projects
-                </Button>
+                <RenderNavMenu />
             </Toolbar>
         </AppBar>
     );

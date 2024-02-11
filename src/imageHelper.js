@@ -11,6 +11,7 @@ import mongodbIcon from "./images/icons/mongodbicon.png";
 import expressjsIcon from "./images/icons/expressjsicon.png";
 import muiIcon from "./images/icons/muiicon.png";
 import profileImg from "./images/myimg.jpeg";
+import profileImg2 from "./images/profileimg.jpg";
 import dribble from "./images/icons/dribble.png";
 import instagram from "./images/icons/instagram.png";
 import linkedIn from "./images/icons/linkedin.png";
@@ -36,6 +37,7 @@ const images = {
     linkedIn,
     twitter,
     behance,
+    profileImg2,
 };
 
 export const getImage = (_images) => {

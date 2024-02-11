@@ -48,7 +48,7 @@ const AboutMe = () => {
                 <Box className="content-box">
                     <Box className="main-about-title-intro">
                         <Typography className="about-title">
-                            PowerApps Developer, Full-stack Developer & UI/UX Designer
+                            React Developer, Front-End Developer & UI/UX Designer
                         </Typography>
                         <Typography className="about-intro">
                             I'm obsessed with making things creative and more keen on making things better. I have been
@@ -61,10 +61,11 @@ const AboutMe = () => {
                             within a limited time span.
                         </Typography>
                         <Typography className="about-intro">
-                            My specialty lies in creating dynamic and catchy front-end web designs and developing them,
-                            as well as designing hybrid mobile apps using Power Apps, Power Automate, and Dynamic 365.
-                            Apart from work, I also prefer to go on solo trips, attend developer conferences, watch
-                            football matches, and hang out with friends.
+                            My specialty lies in creating dynamic and catchy front-end web designs and developing web
+                            apps, as well as designing hybrid mobile apps. Some of skills that I use on daily basis are
+                            React, Azure Devops, and Git version and source control. Apart from work, I also prefer to
+                            go on solo trips, attend developer conferences, watch football matches, and hang out with
+                            friends.
                         </Typography>
                     </Box>
                     <AboutMeDetail />

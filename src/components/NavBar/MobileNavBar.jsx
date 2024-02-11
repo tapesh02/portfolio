@@ -151,7 +151,7 @@ const MobileNavBar = () => {
     }
 
     return (
-        <>
+       
             <div className={(classes.root, classes.hideMobile)}>
                 <CssBaseline />
                 <AppBar position="static" color="transparent" elevation={0}>
@@ -270,7 +270,7 @@ const MobileNavBar = () => {
                     </Drawer>
                 </Backdrop>
             </div>
-        </>
+       
     );
 };
 

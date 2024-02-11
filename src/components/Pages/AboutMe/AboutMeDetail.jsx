@@ -1,17 +1,9 @@
 import React from "react";
 import { Box, Typography } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { detailsData } from "../../../dataProviders";
 
 const AboutMeDetail = () => {
-    const detailsData = [
-        { texHeader: "Birthday: ", text: "19 June 1993" },
-        { texHeader: "Phone: ", text: "+353 0899876363" },
-        { texHeader: "Location: ", text: "Newbridge, Ireland" },
-        { texHeader: "Age: ", text: "28" },
-        { texHeader: "Email: ", text: "pateltapesh505@gmail.com" },
-        { texHeader: "Degree: ", text: "Masters In Software Engineering" },
-    ];
-
     const AboutDetail = ({ icon, texHeader, text }) => (
         <Box className="about-inner-details">
             <ChevronRightIcon />

@@ -1,72 +1,9 @@
 import React from "react";
-import { getImage } from "../../../imageHelper";
+import { technologies } from "../../../dataProviders";
 import { Box } from "@material-ui/core";
 import Header from "../../Header/Header";
 
 const AboutTechnologies = () => {
-    const technologies = [
-        {
-            id: 1,
-            image: getImage("powerappsIcon"),
-            skills: "MS Power Platform",
-        },
-        {
-            id: 2,
-            image: getImage("azureDevopsIcon"),
-            skills: "AzureDevops/GitLab",
-        },
-        {
-            id: 3,
-            image: getImage("firebaseIcon"),
-            skills: "Firebase/Vercel",
-        },
-        {
-            id: 4,
-            image: getImage("reactjsIcon"),
-            skills: "React Js",
-        },
-        {
-            id: 5,
-            image: getImage("nodejsIcon"),
-            skills: "Node Js",
-        },
-        {
-            id: 6,
-            image: getImage("figmaIcon"),
-            skills: "Figma",
-        },
-        {
-            id: 7,
-            image: getImage("adobexdIcon"),
-            skills: "Adobe XD",
-        },
-        {
-            id: 8,
-            image: getImage("saasIcon"),
-            skills: "CSS/SASS/SCSS",
-        },
-        {
-            id: 9,
-            image: getImage("gitIcon"),
-            skills: "Git Version/Source Control",
-        },
-        {
-            id: 10,
-            image: getImage("mongodbIcon"),
-            skills: "No SQL (MongoDb)",
-        },
-        {
-            id: 11,
-            image: getImage("expressjsIcon"),
-            skills: "Express Js",
-        },
-        {
-            id: 12,
-            image: getImage("muiIcon"),
-            skills: "Material UI/Bootstrap CSS",
-        },
-    ];
-
     const RenderTechnologies = () =>
         technologies.map((tech) => {
             const { id, image, skills } = tech;

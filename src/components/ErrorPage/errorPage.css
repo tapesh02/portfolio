@@ -22,8 +22,23 @@
     width: 136px;
     height: 43px;
     border-radius: 999px;
-    background: linear-gradient(140deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 43%, transparent 44%, transparent 100%),
-        linear-gradient(105deg, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.06) 41%, rgba(0, 0, 0, 0.07) 76%, transparent 77%, transparent 100%), linear-gradient(to right, #d89ca4, #e27b7e);
+    background: linear-gradient(
+            140deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.07) 43%,
+            transparent 44%,
+            transparent 100%
+        ),
+        linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.06) 41%,
+            rgba(0, 0, 0, 0.07) 76%,
+            transparent 77%,
+            transparent 100%
+        ),
+        linear-gradient(to right, #d89ca4, #e27b7e);
 }
 .error-container > span.four:before,
 .error-container > span.four:after {
@@ -37,8 +52,15 @@
     height: 156px;
     left: 60px;
     bottom: -43px;
-    background: linear-gradient(128deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 40%, transparent 41%, transparent 100%),
-        linear-gradient(116deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 50%, transparent 51%, transparent 100%), linear-gradient(to top, #99749d, #b895ab, #cc9aa6, #d7969e, #e0787f);
+    background: linear-gradient(
+            128deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.07) 40%,
+            transparent 41%,
+            transparent 100%
+        ),
+        linear-gradient(116deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 50%, transparent 51%, transparent 100%),
+        linear-gradient(to top, #99749d, #b895ab, #cc9aa6, #d7969e, #e0787f);
 }
 .error-container > span.four:after {
     width: 137px;
@@ -69,8 +91,23 @@
     background-color: transparent;
     left: 0px;
     bottom: 0px;
-    background: linear-gradient(95deg, transparent 0%, transparent 8%, rgba(0, 0, 0, 0.07) 9%, transparent 50%, transparent 100%),
-        linear-gradient(85deg, transparent 0%, transparent 19%, rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0.07) 91%, transparent 92%, transparent 100%);
+    background: linear-gradient(
+            95deg,
+            transparent 0%,
+            transparent 8%,
+            rgba(0, 0, 0, 0.07) 9%,
+            transparent 50%,
+            transparent 100%
+        ),
+        linear-gradient(
+            85deg,
+            transparent 0%,
+            transparent 19%,
+            rgba(0, 0, 0, 0.05) 20%,
+            rgba(0, 0, 0, 0.07) 91%,
+            transparent 92%,
+            transparent 100%
+        );
 }
 .error-container > span.zero:after {
     content: "";

@@ -1,16 +1,88 @@
 import React from "react";
 import { getImage } from "../../../imageHelper";
-import { Box, Divider } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+import Header from "../../Header/Header";
 
 const AboutTechnologies = () => {
+    const technologies = [
+        {
+            id: 1,
+            image: getImage("powerappsIcon"),
+            skills: "MS Power Platform",
+        },
+        {
+            id: 2,
+            image: getImage("azureDevopsIcon"),
+            skills: "AzureDevops/GitLab",
+        },
+        {
+            id: 3,
+            image: getImage("firebaseIcon"),
+            skills: "Firebase/Vercel",
+        },
+        {
+            id: 4,
+            image: getImage("reactjsIcon"),
+            skills: "React Js",
+        },
+        {
+            id: 5,
+            image: getImage("nodejsIcon"),
+            skills: "Node Js",
+        },
+        {
+            id: 6,
+            image: getImage("figmaIcon"),
+            skills: "Figma",
+        },
+        {
+            id: 7,
+            image: getImage("adobexdIcon"),
+            skills: "Adobe XD",
+        },
+        {
+            id: 8,
+            image: getImage("saasIcon"),
+            skills: "CSS/SASS/SCSS",
+        },
+        {
+            id: 9,
+            image: getImage("gitIcon"),
+            skills: "Git Version/Source Control",
+        },
+        {
+            id: 10,
+            image: getImage("mongodbIcon"),
+            skills: "No SQL (MongoDb)",
+        },
+        {
+            id: 11,
+            image: getImage("expressjsIcon"),
+            skills: "Express Js",
+        },
+        {
+            id: 12,
+            image: getImage("muiIcon"),
+            skills: "Material UI/Bootstrap CSS",
+        },
+    ];
+
+    const RenderTechnologies = () =>
+        technologies.map((tech) => {
+            const { id, image, skills } = tech;
+            return (
+                <Box key={id} className="tech-list-1" data-aos="fade-up">
+                    <Box className="tech-list-icons">
+                        <img src={image} alt="powerAppIcon" width="30" height="30" />
+                        <p>{skills}</p>
+                    </Box>
+                </Box>
+            );
+        });
+
     return (
         <Box className="main-tech">
-            <Box className="main-tech-header">
-                <p className="tech-header"> Technologies </p>
-                <span>
-                    <Divider className="divider" />
-                </span>
-            </Box>
+            <Header mainHeaderClass={"main-tech-header"} headerClass={"tech-header"} headerText={"Technologies"} />
             <Box className="main-tech-overview">
                 <p className="tech-overviewText">
                     Since I started working as professional, I have worked on many different projects and technologies,
@@ -18,63 +90,7 @@ const AboutTechnologies = () => {
                 </p>
             </Box>
             <Box className="tech-list">
-                <Box className="tech-list-1" data-aos="fade-up">
-                    <Box className="tech-list-icons">
-                        <img src={getImage("powerappsIcon")} alt="powerAppIcon" width="30" height="30" />
-                        <p>PowerApps</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("powerautoIcon")} alt="powerautoIcon" width="30" height="30" />
-                        <p>PowerAutomate</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("sharepointIcon")} alt="sharepointIcon" width="30" height="30" />
-                        <p>SharePoint</p>
-                    </Box>
-                </Box>
-                <Box className="tech-list-1" data-aos="fade-up">
-                    <Box className="tech-list-icons">
-                        <img src={getImage("reactjsIcon")} alt="reactjsIcon" width="30" height="30" />
-                        <p>React Js</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("nodejsIcon")} alt="nodejsIcon" width="30" height="30" />
-                        <p>Node Js</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("photoshopIcon")} alt="photoshopIcon" width="30" height="30" />
-                        <p>Photoshop</p>
-                    </Box>
-                </Box>
-                <Box className="tech-list-1" data-aos="fade-up">
-                    <Box className="tech-list-icons">
-                        <img src={getImage("adobexdIcon")} alt="adobexdIcon" width="30" height="30" />
-                        <p>Adobe XD</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("saasIcon")} alt="saasIcon" width="30" height="30" />
-                        <p>CSS/SASS/SCSS</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("gitIcon")} alt="gitIcon" width="30" height="30" />
-
-                        <p>Git Version/Source Control</p>
-                    </Box>
-                </Box>
-                <Box className="tech-list-1" data-aos="fade-up">
-                    <Box className="tech-list-icons">
-                        <img src={getImage("mongodbIcon")} alt="mongodbIcon" width="30" height="30" />
-                        <p>No SQL (MongoDb)</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("expressjsIcon")} alt="expressjsIcon" width="30" height="30" />
-                        <p>Express Js</p>
-                    </Box>
-                    <Box className="tech-list-icons">
-                        <img src={getImage("muiIcon")} alt="muiIcon" width="30" height="30" />
-                        <p>Material UI/Bootstrap CSS</p>
-                    </Box>
-                </Box>
+                <RenderTechnologies />
             </Box>
         </Box>
     );

@@ -16,8 +16,6 @@
 }
 
 .img-box {
-    /* width: 45vw;
-    height: inherit; */
     width: 47vw;
     height: 45vw;
     display: flex;
@@ -145,10 +143,10 @@
 }
 
 .tech-list {
-    display: flex;
-    width: inherit;
-    margin-top: 0.5%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 4.5em 4.5em 4.5em;
+    justify-items: stretch;
     align-items: center;
 }
 
@@ -156,7 +154,7 @@
     display: grid;
     grid-template-columns: 70px 1fr;
     align-items: center;
-    margin: 0.2vw;
+    margin: 0.1vw;
     padding: 0.2vw;
 }
 
@@ -367,13 +365,16 @@
         width: 95%;
     }
     .about-details {
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2.5em 2.5em 2.5em 2.5em 2.5em 2.5em;
+        justify-items: stretch;
+        align-items: center;
+        padding: 5% 0;
     }
     .about-intro,
     .span-text,
     .about-details-text {
-        /* font-size: 4vw !important; */
         font-size: 16px !important;
     }
     .download-btn {
@@ -400,14 +401,14 @@
 
     .tech-overviewText,
     .resume-overviewText {
-        /* font-size: 4vw; */
         font-size: 16px !important;
     }
 
     .tech-list {
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 3.5em 3.5em 3.5em 3.5em;
+        justify-items: stretch;
         align-items: center;
     }
     .tech-list-icons {
@@ -418,9 +419,8 @@
         height: 20px;
     }
     .tech-list-1 {
-        width: 50%;
         margin: 0%;
-        padding: 0%;
+        padding: 5%;
     }
 
     .tech-list-1 p {
@@ -461,7 +461,6 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        /* flex-wrap: wrap; */
     }
     .car-icon {
         width: 55px;
@@ -567,7 +566,6 @@
 
 @media only screen and (min-width: 1001px) {
     .circle {
-        /* margin-left: -2.79%; */
         margin-left: -2.65%;
     }
 }

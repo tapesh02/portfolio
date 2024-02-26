@@ -16,7 +16,7 @@ export const detailsData = [
     { texHeader: "Location: ", text: "Newbridge, Ireland" },
     { texHeader: "Age: ", text: "28" },
     { texHeader: "Email: ", text: "pateltapesh505@gmail.com" },
-    { texHeader: "Degree: ", text: "Masters In Software Engineering" },
+    { texHeader: "Degree: ", text: "M.S Software Engineering" },
 ];
 
 export const technologies = [
@@ -99,7 +99,7 @@ export const resumeDetails = [
     },
     {
         id: 3,
-        title: "M.S Information systems",
+        title: "M.S Software Engineering",
         year: "2017-2019",
         location: "DBS, Ireland",
         image: getImage("dbs"),

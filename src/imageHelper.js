@@ -17,6 +17,13 @@ import instagram from "./images/icons/instagram.png";
 import linkedIn from "./images/icons/linkedin.png";
 import twitter from "./images/icons/twitter.png";
 import behance from "./images/icons/behance.svg";
+import btps from "./images/btps.png";
+import dbs from "./images/dbs.jpg";
+import gpms from "./images/gpms.jpg";
+import nmu from "./images/nmu.jpg";
+import unipupil from "./images/unipupil.jpg";
+import unum from "./images/unum.png";
+import kare from "./images/kare.jpg";
 
 const images = {
     powerappsIcon,
@@ -38,6 +45,13 @@ const images = {
     twitter,
     behance,
     profileImg2,
+    btps,
+    dbs,
+    gpms,
+    nmu,
+    unipupil,
+    unum,
+    kare,
 };
 
 export const getImage = (_images) => {

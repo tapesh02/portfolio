@@ -19,12 +19,12 @@
     justify-content: flex-start;
 }
 
-.arrowicon2:hover {
+.arrow-icon2:hover {
     background-color: white !important;
     color: #ff0000 !important;
 }
 
-.arrowiconBtn2 {
+.arrow-iconBtn2 {
     position: fixed;
     width: 5%;
     right: 2.5%;
@@ -34,7 +34,7 @@
     z-index: 1;
     cursor: pointer;
 }
-.arrowicon2 {
+.arrow-icon2 {
     border-radius: 50%;
     font-size: 1.3em !important;
 }
@@ -96,7 +96,6 @@
 .card-footer {
     display: flex;
     justify-content: space-evenly;
-    /* margin: auto; */
     align-items: center;
 }
 .main-blog {
@@ -111,44 +110,45 @@
 }
 
 .main-blog-card {
-    width: 100%;
+    width: 45%;
     display: flex;
     background-color: #ffffff;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
     border-radius: 1%;
 }
 
-.card-blog-img {
-    width: 50%;
+.cards {
     display: flex;
-}
-.blog-img {
+    box-sizing: border-box;
     width: 100%;
-    height: inherit;
-    object-fit: cover;
-    border-radius: 1% 10% 10% 1%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.main-blog-card:last-of-type {
+    margin-right: auto;
 }
 .card-blog-content {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .blog-content-main,
-.blog-content-fotter {
-    /* margin: 1.5vw; */
+.blog-content-footer {
     padding: 1.5vw;
 }
 .blog-content-main {
     height: 60%;
 }
-.blog-content-fotter {
+.blog-content-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .blog-content-title {
-    width: 60%;
+    width: 100%;
     font-size: 1vw;
     font-style: normal;
     font-weight: 600 !important;
@@ -173,17 +173,18 @@
     font-weight: normal !important ;
 }
 
-.readmore-btn,
-.arrowicon2 {
+.read-more-btn,
+.arrow-icon2 {
     background-color: #ff0000 !important;
     color: white !important;
 }
-.readmore-btn:hover {
+.read-more-btn:hover {
     background-color: white !important;
     color: #ff0000 !important;
 }
-.blog-fotter-date {
+.blog-footer-date {
     font-size: 0.8vw;
+    font-weight: 700;
 }
 .blog-follow-subtitle {
     font-size: 1vw;
@@ -222,19 +223,42 @@ em {
     color: #ebe9e9;
     padding: 0.5vw;
 }
+
 .shots-icon:hover {
     cursor: pointer;
-}
-.shots-icon:hover {
     color: #fe1ec2;
     background-color: #ffdada;
     border-radius: 50%;
     box-shadow: 1px 1px 13px #ff00002c;
 }
 
+/* tablet layout */
+
+@media only screen and (max-width: 780px) {
+    .main-tech {
+        gap: 1em;
+        height: auto;
+    }
+    .main-resume {
+        gap: 1em;
+        justify-content: center;
+        height: auto;
+    }
+
+    .main-hobbies {
+        gap: 2em;
+        justify-content: center;
+        height: auto;
+    }
+}
+
 /* for mobile 600px max width  */
 
 @media only screen and (max-width: 600px) {
+    .main-blog-card {
+        width: 100%;
+    }
+
     .blog-header,
     .blog-follow-title {
         font-size: 5vw !important;
@@ -247,7 +271,7 @@ em {
     .card-img {
         height: 115px;
     }
-    .arrowiconBtn2 {
+    .arrow-iconBtn2 {
         right: 10%;
     }
     .card-title,
@@ -265,21 +289,19 @@ em {
         width: 6vw;
         height: 6vw;
     }
-    .blog-img {
-        object-fit: contain;
-    }
-    .blog-content-fotter a {
+
+    .blog-content-footer a {
         font-size: 1.8vw !important;
     }
     .blog-content-title,
     .blog-content-overview *,
-    .blog-fotter-date {
+    .blog-footer-date {
         font-size: 2.5vw !important;
     }
     .blog-content-title {
         width: 100%;
     }
-    .blog-content-fotter {
+    .blog-content-footer {
         align-items: center;
     }
     .blog-follow-icons * {
@@ -296,7 +318,7 @@ em {
         height: 180px;
         gap: 2.5px;
     }
-    .readmore-btn {
+    .read-more-btn {
         width: -moz-fit-content;
         width: min-content;
         padding: 1% !important;
@@ -317,9 +339,6 @@ em {
             height: 155px;
             margin-top: 5px;
             margin-bottom: 5px;
-        }
-        .card-blog-img > img {
-            object-fit: scale-down;
         }
     }
 }

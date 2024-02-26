@@ -22,8 +22,9 @@ const DesktopNavBar = () => {
     };
 
     const RenderNavMenu = () =>
-        menu.map((item) => (
+        menu.map((item, i) => (
             <Button
+                key={i}
                 color="inherit"
                 component={NavLink}
                 to={item.link}

@@ -40,7 +40,6 @@
 
 .main-about-title-intro {
     width: 100%;
-    height: 65%;
 }
 .about-title {
     font-size: 1.5vw !important;
@@ -173,71 +172,190 @@
     font-size: 1vw;
     font-weight: bold;
 }
-.resume-details {
+
+.main-resume {
+    height: fit-content;
+}
+#resume-details-main {
     display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: inherit;
     box-sizing: border-box;
+    padding: 1em 2em;
+    overflow: hidden;
 }
-.resume-main-education,
-.resume-main-experience {
-    width: 50%;
-}
-.education-header,
-.experience-header {
-    font-size: 1.5vw;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-.education-section {
+.resume-content {
+    width: 30em;
     display: flex;
-    gap: 2vw;
-    padding: 1vw;
-    padding-left: 1.5vw;
-}
-.MuiDivider-vertical {
-    height: 100% !important;
-    background-color: #fe4747 !important;
-    width: 2px !important;
-}
-.MuiListItem-divider {
-    -webkit-background-clip: padding-box;
-}
-.education-details {
-    box-sizing: border-box;
-}
-.circle {
-    width: 14px;
-    height: 14px;
-    background-color: #fe4747;
-    border-radius: 50%;
-    margin-left: -1.75%;
-    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
-.not-circle p {
-    margin-top: 0.5%;
+.outer-circle {
+    width: 5em;
+    height: 5em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgb(226, 226, 226);
 }
+
+.resume-icons {
+    width: 4em;
+    height: 4em;
+}
+.resume-icons img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.hr-center {
+    width: 30em;
+    border: 1px solid #f4acb7;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    z-index: -1;
+}
+
+.vr-center {
+    border: 1px dotted #14213d;
+    border-radius: 2px;
+    height: 2em;
+}
+
+.circle-dot {
+    width: 1.5em;
+    height: 1.5em;
+    background: #000;
+    border-radius: 50%;
+    margin-bottom: 1.5em;
+}
+
+.text-content {
+    margin-top: -0.5em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 7em;
+}
+
 .resume-title {
-    font-size: 1.05vw;
+    font-size: clamp(12px, 0.95em, 32px);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     word-wrap: break-word;
+    text-align: center;
+    width: 90%;
+    margin: auto;
 }
 .resume-year {
-    background-color: #ffe9e9;
-    font-size: 1.05vw;
+    font-size: clamp(12px, 0.95em, 32px);
     font-weight: 500;
     width: fit-content;
     padding-left: 0.25vw;
     padding-right: 0.25vw;
-    border-radius: 3px;
-    text-transform: capitalize;
-    letter-spacing: 0.5px;
+    text-align: center;
+    margin-top: -1em;
+    width: 90%;
+    margin: auto;
 }
 .resume-location {
-    font-size: 1vw;
-    font-style: italic;
+    font-size: clamp(12px, 0.9em, 28px);
     text-transform: capitalize;
+}
+
+.resume-content:last-of-type .hr-center {
+    display: none;
+}
+
+.resume-content > p {
+    color: gray;
+    white-space: nowrap;
+    font-style: normal;
+}
+
+.resume-content:nth-child(1) .circle-dot {
+    background-color: rgb(251, 253, 128);
+}
+.resume-content:nth-child(1) .outer-circle {
+    background-color: rgba(251, 253, 128, 0.5);
+}
+
+.resume-content:nth-child(1) .vr-center {
+    border: 1px dotted rgb(251, 253, 128);
+}
+
+.resume-content:nth-child(2) .circle-dot {
+    background-color: rgb(59, 174, 241);
+}
+.resume-content:nth-child(2) .outer-circle {
+    background-color: rgb(59, 174, 241, 0.3);
+}
+.resume-content:nth-child(2) .vr-center {
+    border: 1px dotted rgb(59, 174, 241);
+}
+
+.resume-content:nth-child(3) .circle-dot {
+    background-color: rgb(188, 205, 252);
+}
+.resume-content:nth-child(3) .outer-circle {
+    background-color: rgb(188, 205, 252, 0.4);
+}
+.resume-content:nth-child(3) .vr-center {
+    border: 1px dotted rgb(188, 205, 252);
+}
+
+.resume-content:nth-child(4) .circle-dot {
+    background-color: rgb(2, 52, 82);
+}
+.resume-content:nth-child(4) .outer-circle {
+    background-color: rgb(2, 52, 82, 0.5);
+}
+.resume-content:nth-child(4) .vr-center {
+    border: 1px dotted rgb(2, 52, 82);
+}
+
+.resume-content:nth-child(5) .circle-dot {
+    background-color: rgb(206, 21, 8);
+}
+.resume-content:nth-child(5) .outer-circle {
+    background-color: rgb(206, 21, 8, 0.3);
+}
+.resume-content:nth-child(5) .vr-center {
+    border: 1px dotted rgb(206, 21, 8);
+}
+
+.resume-content:nth-child(6) .circle-dot {
+    background-color: rgb(22, 209, 147);
+}
+.resume-content:nth-child(6) .outer-circle {
+    background-color: rgb(22, 209, 147, 0.4);
+}
+.resume-content:nth-child(6) .vr-center {
+    border: 1px dotted rgb(22, 209, 147);
+}
+
+.resume-content:nth-child(7) .circle-dot {
+    background-color: rgb(13, 83, 139);
+}
+.resume-content:nth-child(7) .vr-center {
+    border: 1px dotted rgb(13, 83, 139);
+}
+.resume-content:nth-child(8) .outer-circle {
+    border: 1px dotted rgb(13, 83, 139, 0.4);
+}
+
+.resume-content:nth-of-type(3n + 3) .hr-center {
+    display: none;
 }
 
 .main-hobbies-icons,
@@ -431,28 +549,7 @@
     .resume-details {
         flex-direction: column;
     }
-    .resume-main-education,
-    .resume-main-experience {
-        width: 100%;
-    }
-    .education-header,
-    .experience-header {
-        font-size: 4vw;
-    }
-    .circle {
-        margin-left: -3.6vw;
-        width: 10px;
-        height: 10px;
-    }
 
-    .not-circle p {
-        font-size: 16px !important;
-    }
-    .resume-title,
-    .resume-year,
-    .resume-location {
-        font-size: 2.9vw;
-    }
     .main-hobbies {
         margin: auto;
         gap: 10px;
@@ -552,9 +649,6 @@
         width: 50vw;
         height: 82%;
     }
-    .circle {
-        margin-left: -3.1%;
-    }
     .car-icon {
         width: 100px;
         height: 100px;
@@ -564,22 +658,77 @@
     }
 }
 
-@media only screen and (min-width: 1001px) {
-    .circle {
-        margin-left: -2.65%;
-    }
-}
 @media only screen and (max-width: 2000px) and (min-width: 1400px) {
     .img-box {
         width: 40vw;
         height: 40vw;
     }
-    .circle {
-        margin-left: -2.6%;
+}
+
+@media only screen and (max-width: 2560px) and (min-width: 1500px) {
+    .resume-content {
+        width: 45em;
+    }
+    .hr-center {
+        width: 45em;
     }
 }
-@media only screen and (min-width: 2000px) {
-    .circle {
-        margin-left: -2.35%;
+
+@media only screen and (max-width: 1950px) and (min-width: 1500px) {
+    .resume-content {
+        width: 35em;
+    }
+    .hr-center {
+        width: 35em;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    .resume-content {
+        width: 25em;
+    }
+    .hr-center {
+        width: 25em;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #resume-details-main {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .resume-content {
+        width: 15em;
+    }
+    .hr-center {
+        width: 15em;
+    }
+    .resume-content > p {
+        white-space: initial;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .resume-content {
+        width: 13em;
+    }
+    .hr-center {
+        width: 13em;
+    }
+
+    .main-resume #resume-details-main .resume-content:nth-child(even) .outer-circle .hr-center {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .resume-content {
+        width: 10em;
+    }
+    .hr-center {
+        width: 10em;
     }
 }

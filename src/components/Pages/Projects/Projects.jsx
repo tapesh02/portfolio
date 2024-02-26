@@ -5,11 +5,12 @@ import Aos from "aos";
 import { toggleVisible, scrollToTop, renderIcon } from "../../../helpers";
 import { projects, icons } from "../../../dataProviders";
 import Header from "../../Header/Header";
+import ArrowUp from "../../ArrowUp/ArrowUp";
 
 import "../../../css/project.css";
 import "../../../../node_modules/aos/dist/aos.css";
 
-import { ArrowUpward, ExpandMore } from "@material-ui/icons";
+import { ExpandMore } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDribbble } from "@fortawesome/free-brands-svg-icons";
 
@@ -36,9 +37,9 @@ const Projects = () => {
 
     useEffect(() => {
         const getMediumPosts = async () => {
-            const mediumapi = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@tapesh.patel";
+            const mediumApi = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@tapesh.patel";
 
-            const response = await fetch(mediumapi, { headers: { Accept: "application/json" } });
+            const response = await fetch(mediumApi, { headers: { Accept: "application/json" } });
 
             try {
                 const responseJson = await response.json();
@@ -104,27 +105,24 @@ const Projects = () => {
 
     const RenderMediumArticles = () =>
         articles.map((article) => {
-            const { link, thumbnail, title, description, pubDate } = article;
+            const { link, title, description, pubDate } = article;
             return (
-                <Box className="main-blog-card" key={link} data-aos="fade-up" data-aos-duration="3000">
-                    <Box className="card-blog-img">
-                        <img className="blog-img" src={thumbnail} alt="blogimg" />
-                    </Box>
+                <Box className="main-blog-card " key={link} data-aos="fade-up" data-aos-duration="3000">
                     <Box className="card-blog-content">
                         <Box className="blog-content-main">
                             <p className="blog-content-title">{title}</p>
                             <Markup className="blog-content-overview" content={description}></Markup>
                         </Box>
-                        <Box className="blog-content-fotter">
+                        <Box className="blog-content-footer">
                             <Button
                                 variant="contained"
                                 fontSize="small"
-                                className="readmore-btn"
+                                className="read-more-btn"
                                 href={link}
                                 target="_blank">
                                 Read More
                             </Button>
-                            <p className="blog-fotter-date">{pubDate.slice(0, 10)}</p>
+                            <p className="blog-footer-date">{pubDate.slice(0, 10)}</p>
                         </Box>
                     </Box>
                 </Box>
@@ -153,23 +151,19 @@ const Projects = () => {
 
     return (
         <>
-            <Box className="main-blog">
+            <Box className="main-blog ">
                 <Header mainHeaderClass={"main-blog-header"} headerClass={"blog-header"} headerText={"UI/UX"} />
             </Box>
-            <div className="arrowiconBtn2">
-                <ArrowUpward
-                    style={{ display: visible ? "inline-block" : "none" }}
-                    className="arrowicon2"
-                    onClick={handleScroll}
-                />
-            </div>
+            <ArrowUp visible={visible} handleScroll={handleScroll} className={"arrow-iconBtn2"} />
             <Box className="main-project-section">
                 <RenderDribbleShots />
             </Box>
 
-            <Box className="main-blog">
+            <Box className="main-blog ">
                 <Header mainHeaderClass={"main-blog-header"} headerClass={"blog-header"} headerText={"Blogs"} />
-                <RenderMediumArticles />
+                <div className="cards">
+                    <RenderMediumArticles />
+                </div>
 
                 <Box>
                     <Header

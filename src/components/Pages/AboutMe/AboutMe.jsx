@@ -9,9 +9,8 @@ import "../../../css/aboutme.css";
 
 import { Box, Button, Typography } from "@material-ui/core";
 
-import { ArrowUpward } from "@material-ui/icons";
-
 import { getImage } from "../../../imageHelper";
+import ArrowUp from "../../ArrowUp/ArrowUp";
 import AboutMeDetail from "./AboutMeDetail";
 import AboutTechnologies from "./AboutTechnologies";
 import AboutResume from "./AboutResume";
@@ -76,13 +75,7 @@ const AboutMe = () => {
                     Download
                 </Button>
             </Box>
-            <Box className="arrowIcon-btn">
-                <ArrowUpward
-                    style={{ display: visible ? "block" : "none" }}
-                    className="arrowIcon"
-                    onClick={handleScroll}
-                />
-            </Box>
+            <ArrowUp visible={visible} handleScroll={handleScroll} className={"arrowIcon-btn"} />
             <AboutTechnologies />
             <AboutResume />
             <AboutHobbies />

@@ -12,6 +12,7 @@
     left: 15%;
     text-transform: uppercase;
     font-size: 4em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
 
     background-image: linear-gradient(
         45deg,
@@ -46,6 +47,7 @@
     left: 45%;
     text-transform: uppercase;
     font-size: 4em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
 
     background-image: linear-gradient(
         45deg,
@@ -258,13 +260,13 @@
 }
 @keyframes float {
     0% {
-        transform: translatey(0px);
+        transform: translateY(0px);
     }
     50% {
-        transform: translatey(-20px);
+        transform: translateY(-20px);
     }
     100% {
-        transform: translatey(0px);
+        transform: translateY(0px);
     }
 }
 
@@ -284,4 +286,29 @@
 }
 .m-home-icons a span {
     justify-content: flex-start;
+}
+
+/* tablet layout */
+
+@media only screen and (max-width: 780px) {
+    .header-1,
+    .header-2 {
+        font-size: 3em;
+    }
+
+    .header-1 {
+        left: 13%;
+    }
+
+    .more-btn {
+        top: 75.5%;
+    }
+}
+
+/* desktop layout */
+@media only screen and (max-width: 1950px) and (min-width: 1500px) {
+    .header-1,
+    .header-2 {
+        font-size: 7em;
+    }
 }

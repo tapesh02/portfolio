@@ -151,7 +151,7 @@ const MobileNavBar = () => {
     const handleDrawerOpen = () => {
         setOpen(true);
 
-        if (typeof window != "undefined" && window.document) {
+        if (window?.document) {
             document.body.style.overflow = "hidden";
             document.body.style.background = "blur(2px)";
         }

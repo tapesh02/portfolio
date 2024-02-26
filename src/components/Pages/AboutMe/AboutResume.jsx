@@ -1,6 +1,5 @@
 import { Box } from "@material-ui/core";
 import React from "react";
-import Header from "../../Header/Header";
 import { resumeDetails } from "../../../dataProviders";
 import AboutHeader from "./AboutHeader";
 

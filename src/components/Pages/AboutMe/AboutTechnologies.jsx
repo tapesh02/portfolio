@@ -1,7 +1,6 @@
 import React from "react";
 import { technologies } from "../../../dataProviders";
 import { Box } from "@material-ui/core";
-import Header from "../../Header/Header";
 import AboutHeader from "./AboutHeader";
 
 const AboutTechnologies = () => {

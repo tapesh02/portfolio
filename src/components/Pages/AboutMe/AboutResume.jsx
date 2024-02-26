@@ -2,6 +2,7 @@ import { Box } from "@material-ui/core";
 import React from "react";
 import Header from "../../Header/Header";
 import { resumeDetails } from "../../../dataProviders";
+import AboutHeader from "./AboutHeader";
 
 const AboutResume = () => {
     const RenderResumeDetails = () =>
@@ -30,15 +31,16 @@ const AboutResume = () => {
 
     return (
         <Box className="main-resume">
-            <Header mainHeaderClass={"main-resume-header"} headerClass={"resume-header"} headerText={"Resume"} />
-            <Box className="main-resume-overview">
-                <p className="resume-overviewText">
-                    Motivated web developer with a proven track record and progressive experience in the IT industry.
-                    Offering expertise in web development, and eye-catching user-interface, with aptitude in power
-                    platform (office 365 suits). An energetic self-starter and team builder able to navigate high-stress
-                    situations and achieve goals on time and under budget.
-                </p>
-            </Box>
+            <AboutHeader
+                mainHeaderClass={"main-resume-header"}
+                headerClass={"resume-header"}
+                headerText={"Resume"}
+                overviewMainClass={"main-resume-overview"}
+                overviewClass={"resume-overviewText"}
+                overviewText={
+                    "Motivated web developer with a proven track record and progressive experience in the IT industry. Offering expertise in web development, and eye-catching user-interface, with aptitude in power platform (office 365 suits). An energetic self-starter and team builder able to navigate high-stress situations and achieve goals on time and under budget."
+                }
+            />
             <Box id="resume-details-main">
                 <RenderResumeDetails />
             </Box>

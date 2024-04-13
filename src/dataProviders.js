@@ -10,27 +10,6 @@ export const menu = [
   { link: "/projects", name: "Projects" },
 ];
 
-const currentAge = (date) => {
-  const today = new Date();
-  const today_month = today.getMonth() + 1;
-  let age = today.getYear() - date.getYear();
-
-  if (today_month > date.getMonth() || (today_month === date.getMonth() && today.getDate() < date.getDate())) {
-    age--;
-  }
-
-  return age;
-};
-
-export const detailsData = [
-  { texHeader: "Birthday: ", text: "19 June 1993" },
-  { texHeader: "Phone: ", text: "+353 0899876363" },
-  { texHeader: "Location: ", text: "Newbridge, Ireland" },
-  { texHeader: "Age: ", text: currentAge(new Date(1993, 6, 19)) },
-  { texHeader: "Email: ", text: "pateltapesh505@gmail.com" },
-  { texHeader: "Degree: ", text: "M.S Software Engineering" },
-];
-
 export const technologies = [
   {
     id: 1,
@@ -39,12 +18,12 @@ export const technologies = [
   },
   {
     id: 2,
-    image: getImage("azureDevopsIcon"),
-    skills: "AzureDevops/GitLab",
+    image: getImage("devopsIcon"),
+    skills: "Azure/GitLab",
   },
   {
     id: 3,
-    image: getImage("firebaseIcon"),
+    image: getImage("deployIcon"),
     skills: "Firebase/Vercel",
   },
   {
@@ -59,13 +38,13 @@ export const technologies = [
   },
   {
     id: 6,
-    image: getImage("figmaIcon"),
-    skills: "Figma",
+    image: getImage("uiIcon"),
+    skills: "Figma/AdobeXD",
   },
   {
     id: 7,
-    image: getImage("adobexdIcon"),
-    skills: "Adobe XD",
+    image: getImage("apiIcon"),
+    skills: "REST/GraphQL",
   },
   {
     id: 8,
@@ -75,7 +54,7 @@ export const technologies = [
   {
     id: 9,
     image: getImage("gitIcon"),
-    skills: "Git Version/Source Control",
+    skills: "Git/GitHub",
   },
   {
     id: 10,
@@ -90,7 +69,7 @@ export const technologies = [
   {
     id: 12,
     image: getImage("muiIcon"),
-    skills: "Material UI/Bootstrap CSS",
+    skills: "MUI/Bootstrap",
   },
 ];
 

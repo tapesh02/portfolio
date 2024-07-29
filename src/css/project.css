@@ -217,7 +217,7 @@ em {
   font-size: 0.7vw !important;
   text-align: center;
   text-transform: uppercase;
-  color: #fe1ec2;
+  color: rgb(254, 71, 71);
   display: flex;
   align-items: center;
 }
@@ -225,7 +225,7 @@ em {
   width: 1.5vw;
   height: 1.5vw;
   margin: 1.5vw;
-  color: #fe1ec2;
+  color: rgb(254, 71, 71);
 }
 
 .card-footer:hover {

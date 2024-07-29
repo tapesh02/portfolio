@@ -3,7 +3,7 @@
 .main-resume,
 .main-hobbies,
 .main-contact-form {
-  height: calc(100vh - 64px);
+  height: auto;
   width: 95vw;
   margin: auto;
   display: flex;
@@ -52,44 +52,14 @@
   width: 95%;
   padding: 1%;
   text-align: justify;
-  font-size: 1.05vw !important;
+  font-size: 1.1em !important;
 }
 
-.about-details {
-  height: 35%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2em 2em 2em;
-  justify-items: stretch;
-  align-items: center;
-  align-content: center;
-  padding: 0 2em;
-}
-.about-details-content {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-.about-inner-details {
-  display: grid;
-  grid-template-columns: 30px 1fr;
-  align-items: center;
-  align-content: center;
-}
-.about-details-text {
-  font-weight: bold !important;
-  font-size: 1.05vw !important;
-}
-.span-text {
-  font-weight: normal;
-  padding-left: 0.3em;
-}
-.download-btn,
 .arrowIcon {
   background-color: #ff0000 !important;
   color: white !important;
 }
-.download-btn:hover,
+
 .arrowIcon:hover {
   background-color: white !important;
   color: #ff0000 !important;
@@ -138,7 +108,7 @@
 
 .tech-overviewText,
 .resume-overviewText {
-  font-size: 0.95em;
+  font-size: 1.2em;
 }
 
 .tech-list {
@@ -363,6 +333,9 @@
   display: flex;
   justify-content: center;
 }
+.main-hobbies-icons {
+  margin-top: 2em;
+}
 
 .car-icon {
   background: linear-gradient(#f00 0%, #ff1616 38.48%, #fe4747 100%);
@@ -407,7 +380,7 @@
 }
 
 .connected-bg {
-  width: 40%;
+  width: auto;
   border-radius: 10px;
   margin: 2.7vw;
   background-color: rgb(91, 64, 64);
@@ -418,7 +391,7 @@
   align-items: flex-start;
 }
 .send-btn {
-  float: right;
+  width: 100%;
   background-color: #fe4747 !important;
   color: #ffffff !important;
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
@@ -426,6 +399,10 @@
 .send-btn:hover {
   background-color: #ffffff !important;
   color: #fe4747 !important;
+}
+.connected-bg .connected-details .connected-title {
+  font-size: 4em;
+  margin: 0;
 }
 .connected-title,
 .connected-subtitle {
@@ -436,9 +413,8 @@
   text-align: left;
 }
 .connected-subtitle {
-  font-style: oblique;
   font-weight: normal;
-  color: #888888;
+  color: #c5c5c5;
 }
 
 .connected-icons {
@@ -464,7 +440,21 @@
   }
 }
 
-/* for tablet */
+@media only screen and (max-width: 2560px) and (min-width: 1500px) {
+  .resume-content {
+    width: 45em;
+  }
+  .hr-center {
+    width: 45em;
+  }
+}
+@media only screen and (max-width: 2000px) and (min-width: 1400px) {
+  .img-box {
+    width: 40vw;
+    height: 40vw;
+  }
+}
+/* for large tablet  */
 @media only screen and (max-width: 1000px) and (min-width: 700px) {
   .img-box {
     width: 50vw;
@@ -476,22 +466,6 @@
   }
   .contact-bg {
     width: 90vw;
-  }
-}
-
-@media only screen and (max-width: 2000px) and (min-width: 1400px) {
-  .img-box {
-    width: 40vw;
-    height: 40vw;
-  }
-}
-
-@media only screen and (max-width: 2560px) and (min-width: 1500px) {
-  .resume-content {
-    width: 45em;
-  }
-  .hr-center {
-    width: 45em;
   }
 }
 
@@ -539,16 +513,6 @@
   .about-intro {
     font-size: 0.8em !important;
   }
-  .about-details {
-    padding: 0 0.5em;
-  }
-  .about-inner-details {
-    grid-template-columns: 20px 1fr;
-  }
-
-  .about-details-text {
-    font-size: 0.7em !important;
-  }
 
   .resume-content {
     width: 15em;
@@ -590,24 +554,8 @@
     font-size: 6vw !important;
     width: 95%;
   }
-  .about-details {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2.5em 2.5em 2.5em 2.5em 2.5em 2.5em;
-    justify-items: stretch;
-    align-items: center;
-    padding: 5% 0;
-  }
-  .about-intro,
-  .span-text,
-  .about-details-text {
+  .about-intro {
     font-size: 1em !important;
-  }
-  .download-btn {
-    width: fit-content !important;
-    font-size: 0.7em !important;
-    text-align: center !important;
-    justify-content: center !important;
   }
 
   .main-tech,
@@ -650,7 +598,7 @@
   }
 
   .tech-list-1 p {
-    font-size: 3.5vw;
+    font-size: 0.9em;
     font-weight: bold;
   }
 
@@ -666,6 +614,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 2em;
   }
   .car-icon {
     width: 55px;
@@ -757,9 +706,15 @@
   .connected-details {
     padding: 1em;
   }
+  .connected-bg .connected-details .connected-title {
+    font-size: 3em;
+  }
+  .connected-icons img {
+    width: 35px;
+  }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 380px) {
   .resume-content {
     width: 10em;
   }

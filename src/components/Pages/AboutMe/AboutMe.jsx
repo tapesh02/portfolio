@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { saveAs } from "file-saver";
 import Aos from "aos";
 
 import { scrollToTop, toggleVisible } from "../../../helpers";
@@ -7,21 +6,17 @@ import { scrollToTop, toggleVisible } from "../../../helpers";
 import "../../../../node_modules/aos/dist/aos.css";
 import "../../../css/aboutme.css";
 
-import { Box, Button, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
 import { getImage } from "../../../imageHelper";
 import ArrowUp from "../../ArrowUp/ArrowUp";
-import AboutMeDetail from "./AboutMeDetail";
+
 import AboutTechnologies from "./AboutTechnologies";
 import AboutResume from "./AboutResume";
 import AboutHobbies from "./AboutHobbies";
 import ContactForm from "./ContactForm";
 
 const AboutMe = () => {
-  const onDownloadCv = () => {
-    saveAs("/files/Tapesh's Resume.docx", "Tapesh's Resume.docx");
-  };
-
   const [visible, setVisible] = useState(false);
 
   const handleToggle = () => {
@@ -68,13 +63,7 @@ const AboutMe = () => {
               conferences, watch football matches, and hang out with friends.
             </Typography>
           </Box>
-          <AboutMeDetail />
         </Box>
-      </Box>
-      <Box style={{ width: "100%", margin: "2% auto", textAlign: "center" }}>
-        <Button variant="contained" className="download-btn" onClick={onDownloadCv}>
-          Download CV
-        </Button>
       </Box>
       <ArrowUp visible={visible} handleScroll={handleScroll} className={"arrowIcon-btn"} />
       <AboutTechnologies />
